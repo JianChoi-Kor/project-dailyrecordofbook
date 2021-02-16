@@ -3,11 +3,13 @@
     pageEncoding="UTF-8"%>
 
 <footer>
-    <ul>
-      <li><a href="">회사소개</a></li>
-      <li><a href="">이용약관</a></li>
-      <li><a href="">개인정보취급방침</a></li>
-      <li><a href="">고객센터</a></li>
-    </ul>
-    <address>&copy; <strong><a href=" target="_blank">~~~~.com</a></strong></address>
+    <div>
+    	<span> 대구 독서모임 책방일지 </span><span>  |  </span>
+    	<span> 책방지기 김수인, 이경은, 최지안 </span><span>  |  </span>
+    	<span> 사업자등록번호 : 000-00-00000 </span>
+    	<p> 주소 : 대구광역시 중구 달구벌대로446길 7-16 </p>
+    	<p> book community </p>
+    	<address>&copy; <strong><a href="" target="_blank">dailyrecordofbook.com</a></strong></address>
+    	<a href=""><img src="/res/img/instagram.jpg"></a>
+    </div>
  </footer>

@@ -53,6 +53,8 @@ a {
 }
 
 .navbar_login {
+	display: flex;
+	justify-content: space-between;
     list-style: none;
     padding: 8px 16px;
 }
@@ -77,7 +79,7 @@ a {
 
 
 
-/* 800 보다 작아졌을 때 */
+/* 780 보다 작아졌을 때 */
 @media screen and (max-width: 780px) {
     .navbar {
         flex-direction: column;
@@ -109,7 +111,7 @@ a {
         position: absolute;
         padding: 10px;
         right: 30px;
-        flex-direction: column;
+        flex-direction: row;
         align-items: center;
     }
 
@@ -118,6 +120,7 @@ a {
         margin-left: -32px;
         width: 100%;
         text-align: center;
+        margin: 0px 2px;
     }
 
 }
