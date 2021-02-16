@@ -1,12 +1,13 @@
+ 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
-	<h3>tiles - footer 부분</h3>
-</body>
-</html>
+
+<footer>
+    <ul>
+      <li><a href="">회사소개</a></li>
+      <li><a href="">이용약관</a></li>
+      <li><a href="">개인정보취급방침</a></li>
+      <li><a href="">고객센터</a></li>
+    </ul>
+    <address>&copy; <strong><a href=" target="_blank">~~~~.com</a></strong></address>
+ </footer>

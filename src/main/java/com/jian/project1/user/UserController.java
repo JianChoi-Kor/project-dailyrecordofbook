@@ -13,4 +13,9 @@ public class UserController {
 		
 	}
 	
+	@GetMapping("join")
+	public void join() {
+		
+	}
+	
 }

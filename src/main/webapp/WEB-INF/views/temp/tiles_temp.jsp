@@ -13,9 +13,11 @@
 <body>
 	<div>
 		<tiles:insertAttribute name="header"/>
-		<section>
-			<tiles:insertAttribute name="content"/>
-		</section>
+	</div>
+	<section id="tiles-content">
+		<tiles:insertAttribute name="content"/>
+	</section>
+	<div>
 		<tiles:insertAttribute name="footer"/>
 	</div>
 </body>
