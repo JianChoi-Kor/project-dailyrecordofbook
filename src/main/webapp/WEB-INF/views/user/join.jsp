@@ -13,7 +13,7 @@
 				이메일 <span> * </span>
 			</h3>
 			<input type="text" name="userEmail" placeholder="이메일을 입력해주세요.">
-			<p></p>
+			<p>- 이메일 인증이 진행됩니다. 실제 사용가능한 이메일을 입력해주세요.</p>
 		</div>
 
 		<!-- 비밀번호 부분 -->
@@ -66,13 +66,14 @@
 			<p>예: 인스타그램, 네이버 블로그, 지인 추천 등</p>
 
 			<h3 class="h3 h3_">한 달에 읽으시는 책은 몇 권 정도 되나요?</h3>
-			<select class="join_rv" type="select" name="redingVolume">
-				<option value class="">0권</option>
-				<option value class="">1권</option>
-				<option value class="">2권</option>
-				<option value class="">3권</option>
-				<option value class="">4권</option>
-				<option value class="">5권 이상</option>
+			<select class="join_rv" name="redingVolume">
+				<option value="">-- 선택 --</option>
+				<option value="0">0권</option>
+				<option value="1">1권</option>
+				<option value="2">2권</option>
+				<option value="3">3권</option>
+				<option value="4">4권</option>
+				<option value="5">5권 이상</option>
 			</select>
 		</div>
 		

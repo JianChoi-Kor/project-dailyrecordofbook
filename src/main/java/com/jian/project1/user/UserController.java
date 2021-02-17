@@ -8,16 +8,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/user")
 public class UserController {
 
+    // 로그인
 	@GetMapping("login")
 	public void login() {
 		
 	}
 	
+	// 회원가입
 	@GetMapping("join")
 	public void join() {
 		
 	}
 	
+	// 약관동의
 	@GetMapping("/terms") 
 	public void terms() {
 		
