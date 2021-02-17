@@ -1,9 +1,13 @@
 @charset "UTF-8";
 
 header {
+	position: sticky;
+	top:0;
+	z-index: 1;
     margin:0;
     font-family: 'Open Sans', sans-serif;
     border-bottom: 1px solid rgb(225, 225, 225);
+    background-color: rgb(255, 255, 255);
 }
 
 a {
@@ -12,7 +16,6 @@ a {
 }
 
 .navbar {
-    position: sticky;
     max-width: 1040px;
     display: flex;
     justify-content: space-between;

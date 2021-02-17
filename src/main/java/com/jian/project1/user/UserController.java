@@ -18,4 +18,9 @@ public class UserController {
 		
 	}
 	
+	@GetMapping("/terms") 
+	public void terms() {
+		
+	}
+	
 }
