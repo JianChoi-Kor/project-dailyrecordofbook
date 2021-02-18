@@ -2,14 +2,20 @@
 	pageEncoding="UTF-8"%>
 
 <!-- 약관 세부 내용 수정 필요!! -->
-<div id="terms_content">
+<form id="terms_content">
 
 	<p class="sign">
 	<h1 class="h1">회원가입</h1>
 	</p>
+	
+	<div class="checks">
+        <input type="checkbox" id="chk1_all" onclick="chkAll()"> 
+        	<label class="top_label" for="chk1_all">책방일지 이용약관, 개인정보 수집 및 이용, 프로모션 정보 수신(선택)에 모두 동의합니다.
+        </label> 
+    </div>
     <!-- 이용 약관 동의 -->
     <div class="terms_box">
-        <h3 class="h3">이용 약관 동의 (필수)</h3>
+        <h3 class="h3">책방일지 이용 약관 동의 (필수)</h3>
         <div class="agree_box">
             <div class="article_text">
                 <h4>여러분을 환영합니다.</h4>
@@ -30,7 +36,11 @@
                 </p>     
             </div>
         </div>
-        <input type="checkbox" id="chk1_1"><label for="chk1_1">이용 약관에 동의합니다.</label>
+        <div class="checks">
+        	<input type="checkbox" id="chk1_1"> 
+        		<label for="chk1_1">이용 약관에 동의합니다.
+        	</label> 
+    	</div>
     </div>
 
     <!-- 개인정보 수집 및 이용 동의 -->
@@ -50,7 +60,11 @@
                     - 단체아이디로 회원가입 시 단체아이디, 비밀번호, 단체이름, 이메일주소, 휴대전화번호를 필수항목으로 수집합니다. 그리고 단체 대표자명을 선택항목으로 수집합니다.</p>     
             </div>
         </div>
-        <input type="checkbox" id="chk1_2"><label for="chk1_2">개인정보 수집 및 이용에 동의합니다.</label>
+        <div class="checks">
+        	<input type="checkbox" id="chk1_2"> 
+        		<label for="chk1_2">개인정보 수집 및 이용에 동의합니다.
+        	</label> 
+    	</div>
     </div>
 
     <!-- 프로모션 정보 수신 동의 -->
@@ -61,16 +75,15 @@
                 <p>네이버에서 제공하는 이벤트/혜택 등 다양한 정보를 휴대전화(네이버앱 알림 또는 문자), 이메일로 받아보실 수 있습니다. 일부 서비스(별도 회원 체계로 운영하거나 네이버 가입 이후 추가 가입하여 이용하는 서비스 등)의 경우, 개별 서비스에 대해 별도 수신 동의를 받을 수 있으며, 이때에도 수신 동의에 대해 별도로 안내하고 동의를 받습니다.</p>     
             </div>
         </div>
-        <input type="checkbox" id="chk1_3"><label for="chk1_3">프로모션 정보 수신에 동의합니다.</label>
+        <div class="checks">
+        	<input type="checkbox" id="chk1_3"> 
+        		<label for="chk1_3">프로모션 정보 수신에 동의합니다.
+        	</label> 
+    	</div>
     </div>
 
-    <a name="agreeBtn"></a>
     <div class="btn_area_double">
-        <button class="terms_btn">
-            <a href="" id="btnCancel" class="cancel" role="button">취소</a>
-        </button>
-        <button class="terms_btn">
-            <a href="" id="btnAgree" class="Agree" role="button">확인</a>
-        </button>
+        <button class="terms_btn" id="btnCancle" onclick="location.href=''/board/home'">취소</button>
+        <button class="terms_btn" id="btnAgree" onclick="location.href=''/user/join'">확인</button>
     </div>
-</div>
+</form>

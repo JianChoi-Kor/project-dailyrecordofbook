@@ -5,7 +5,7 @@
 <header>
     <nav class="navbar">
         <div class="navbar_logo_up">
-            <a href="">
+            <a href="/main/home">
                 <img src="/res/img/logo_up.jpg">
             </a>
         </div>
@@ -23,8 +23,8 @@
         </ul>
 
         <ul class="navbar_login">
-            <li><a href="">로그인</a></li>
-            <li><a href="">회원가입</a></li>
+            <li><a href="/user/login">로그인</a></li>
+            <li><a href="/user/terms">회원가입</a></li>
         </ul>
     </nav>
 </header>

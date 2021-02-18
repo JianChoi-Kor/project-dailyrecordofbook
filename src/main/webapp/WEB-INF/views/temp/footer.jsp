@@ -9,7 +9,7 @@
     	<span> 사업자등록번호 : 000-00-00000 </span>
     	<p> 주소 : 대구광역시 중구 달구벌대로446길 7-16 </p>
     	<p> book community </p>
-    	<address>&copy; <strong><a href="" target="_blank">dailyrecordofbook.com</a></strong></address>
-    	<a href=""><img src="/res/img/instagram.jpg"></a>
+    	<address>&copy; <strong><a href="https://blog.naver.com/dailyrecordofbook" target="_blank">dailyrecordofbook.com</a></strong></address>
+    	<a href="https://www.instagram.com/dailyrecordofbook/" target="_blank"><img src="/res/img/instagram.jpg"></a>
     </div>
  </footer>

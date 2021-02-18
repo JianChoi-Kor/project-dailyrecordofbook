@@ -7,6 +7,10 @@ public class UserEntity {
 	private String salt;
 	private String userNm;
 	private String userPn;
+	private String profileImg;
+	private String regDt;
+	private String searchInfo;
+	private int redingVolume;
 	
 	public int getUserPk() {
 		return userPk;
@@ -56,13 +60,16 @@ public class UserEntity {
 	public void setRegDt(String regDt) {
 		this.regDt = regDt;
 	}
+	public String getSearchInfo() {
+		return searchInfo;
+	}
+	public void setSearchInfo(String searchInfo) {
+		this.searchInfo = searchInfo;
+	}
 	public int getRedingVolume() {
 		return redingVolume;
 	}
 	public void setRedingVolume(int redingVolume) {
 		this.redingVolume = redingVolume;
 	}
-	private String profileImg;
-	private String regDt;
-	private int redingVolume;
 }

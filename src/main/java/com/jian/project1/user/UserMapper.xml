@@ -6,4 +6,12 @@
   
 <mapper namespace="com.jian.project1.user.UserMapper">
 	
+	<select id="selUser" parameterType="UserEntity" resultType="UserEntity">
+		SELECT * FROM t_user WHERE userEmail = #{userEmail}
+	</select>
+	
+	<insert id="insUser" parameterType="UserEntity">
+	
+	</insert>
+	
 </mapper>
