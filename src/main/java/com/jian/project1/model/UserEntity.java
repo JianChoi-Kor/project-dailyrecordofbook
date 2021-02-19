@@ -10,8 +10,28 @@ public class UserEntity {
 	private String profileImg;
 	private String regDt;
 	private String searchInfo;
-	private int redingVolume;
-	
+	private String readingVolume;
+	private String authKey;
+	private int authStatus;
+
+	public String getAuthKey() {
+		return authKey;
+	}
+	public void setAuthKey(String authKey) {
+		this.authKey = authKey;
+	}
+	public int getAuthStatus() {
+		return authStatus;
+	}
+	public void setAuthStatus(int authStatus) {
+		this.authStatus = authStatus;
+	}
+	public String getReadingVolume() {
+		return readingVolume;
+	}
+	public void setReadingVolume(String readingVolume) {
+		this.readingVolume = readingVolume;
+	}
 	public int getUserPk() {
 		return userPk;
 	}
@@ -66,10 +86,5 @@ public class UserEntity {
 	public void setSearchInfo(String searchInfo) {
 		this.searchInfo = searchInfo;
 	}
-	public int getRedingVolume() {
-		return redingVolume;
-	}
-	public void setRedingVolume(int redingVolume) {
-		this.redingVolume = redingVolume;
-	}
+
 }

@@ -5,13 +5,16 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper namespace="com.jian.project1.user.UserMapper">
-	
+
 	<select id="selUser" parameterType="UserEntity" resultType="UserEntity">
-		SELECT * FROM t_user WHERE userEmail = #{userEmail}
+		SELECT * FROM project1_user WHERE userEmail = #{userEmail}
 	</select>
 	
 	<insert id="insUser" parameterType="UserEntity">
-	
+		INSERT INTO project1_user
+		( userEmail, userPw, salt, userNm, userPn, searchInfo, readingVolume)
+		VALUES
+		( #{userEmail}, #{userPw}, #{salt}, #{userNm}, #{userPn}, #{searchInfo}, #{readingVolume} )
 	</insert>
 	
 </mapper>

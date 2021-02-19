@@ -56,6 +56,7 @@ input {
     outline: none;
     display: block;
     margin: 0 auto;
+    border-radius: 0.5em;
 }
 
 .login_btn:hover {
@@ -86,6 +87,7 @@ input {
     transition: 800ms ease all;
 }
 
+
 .login_middle {
     width: 100%;
     text-align: center;
@@ -94,4 +96,13 @@ input {
 
 span {
     margin: 4px;
+}
+
+.errMsg {
+	margin-left: 24px;
+	margin-top: -10px;
+	margin-bottom: 25px;
+	color: red;
+	font-weight: 700;
+	
 }
