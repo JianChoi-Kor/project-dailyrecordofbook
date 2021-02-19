@@ -43,14 +43,14 @@ public class MailSendService {
 		// 인증메일 보내기
 		try {
 			MailUtils sendMail = new MailUtils(mailSender);
-			sendMail.setSubject("회원가입 이메일 인증");
-			sendMail.setText(new StringBuffer().append("<h1>[이메일 인증]</h1>")
+			sendMail.setSubject("책방일지 회원가입 이메일 인증");
+			sendMail.setText(new StringBuffer().append("<h1>[책방일지 회원가입 이메일 인증]</h1>")
 			.append("<p>아래 링크를 클릭하시면 이메일 인증이 완료됩니다.</p>")
-			.append("<a href='http://localhose:8080/user/??수정 필요 ?email=")
+			.append("<a href='http://localhost:8080/user/joinConfirm?userEmail=")
 			.append(email)
 			.append("&authKey=")
 			.append(authKey)
-			.append("'</a>")
+			.append("' target='_blank'>이메일 인증 확인</a>")
 			.toString());
 			sendMail.setFrom("mnlst2020c@gmail.com", "관리자");
 			sendMail.setTo(email);

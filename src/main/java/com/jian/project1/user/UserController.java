@@ -1,8 +1,6 @@
 package com.jian.project1.user;
 
-import java.util.HashMap;
-import java.util.Map;
-
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +23,7 @@ public class UserController {
 	
 	@Autowired
 	private MailSendService mailSender;
+	
 	
     // 로그인
 	@GetMapping("/login")
@@ -62,17 +61,47 @@ public class UserController {
 			// 회원가입에 성공했다면 임의의 autoKey 생성 => 이메일 발송
 			String authKey = mailSender.sendAuthMail(p.getUserEmail());
 			p.setAuthKey(authKey);
+			System.out.println("authKey : " + p.getAuthKey());
 			
-			Map<String, String> returnValue = new HashMap<String, String>();
-			returnValue.put("email", p.getUserEmail());
-			returnValue.put("authKey", p.getAuthKey());
-			System.out.println("result : " + returnValue);
-			
-			//service.updAuthKey(returnValue);
+			service.updAuthKey(p);
 		}
 		
 		return joinResult;
 	}
+	
+	
+	// 메일 인증
+	@GetMapping("/joinConfirm")
+	public String joinConfirm(HttpServletRequest request, UserEntity p) {
+		// request에서 값을 받아온다.
+		String userEmail = request.getParameter("userEmail");
+		String authKey = request.getParameter("authKey");
+		// 받은 값을 저장
+		p.setUserEmail(userEmail);
+		p.setAuthKey(authKey);
+
+		// 이메일과 authKey가 일치할 경우 authStatus 업데이트
+		int joinConfirmResult = service.chkAndUpdAuthStatus(p);
+		
+		if(joinConfirmResult == 1) {
+			return "redirect:/user/joinConfirmSuccess";
+		} else {
+			return "redirect:/user/joinConfirmFailure";
+		}
+	}
+	
+	// 메일 인증 성공
+	@GetMapping("/joinConfirmSuccess")
+	public void joinConfirmSuccess() {
+		
+	}
+	
+	// 메일 인증 실패
+	@GetMapping("/joinConfirmFailure")
+	public void joinConfirmFailure() {
+		
+	}
+	
 	
 	// 약관동의
 	@GetMapping("/terms") 

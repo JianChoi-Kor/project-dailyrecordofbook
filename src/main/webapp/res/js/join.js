@@ -10,7 +10,7 @@ if(joinBtnElem) {
 	var userNmElem = join_frmElem.userNm
 	var userPnElem = join_frmElem.userPn
 	var searchInfoElem = join_frmElem.searchInfo
-	var readingVolumeElem = join_frmElem.readingVolume
+	var readingVolumeElem = document.querySelector('#readingVolume')
 	
 	function ajax() {
 		//TODO 이메일 입력시 @ 등 체크해야할 것들 늘리기
@@ -39,7 +39,7 @@ if(joinBtnElem) {
 			userNm: userNmElem.value,
 			userPn: userPnElem.value,
 			searchInfo: searchInfoElem.value,
-			redingVolume: readingVolumeElem.value
+			readingVolume: readingVolumeElem.options[readingVolumeElem.selectedIndex].value
 		}
 		
 		fetch('/user/join', {

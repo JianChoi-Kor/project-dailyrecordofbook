@@ -50,6 +50,10 @@ if(loginBtnElem) {
 			case 3:
 			errMsgElem.innerText = '비밀번호가 틀립니다.'
 			return
+			
+			case 4:
+			errMsgElem.innerText = '이메일 인증이 진행되지 않은 아이디입니다.'
+			return
 		}
 	}
 }

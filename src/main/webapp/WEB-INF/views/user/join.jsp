@@ -67,14 +67,14 @@
 			<p>예: 인스타그램, 네이버 블로그, 지인 추천 등</p>
 
 			<h3 class="h3 h3_">한 달에 읽으시는 책은 몇 권 정도 되나요?</h3>
-			<select class="join_rv" name="readingVolume">
-				<option name="">-- 선택 --</option>
-				<option name="0">0권</option>
-				<option name="1">1권</option>
-				<option name="2">2권</option>
-				<option name="3">3권</option>
-				<option name="4">4권</option>
-				<option name="5">5권 이상</option>
+			<select class="join_rv" id="readingVolume">
+				<option value="입력값 없음">-- 선택 --</option>
+				<option value="0권">0권</option>
+				<option value="1권">1권</option>
+				<option value="2권">2권</option>
+				<option value="3권">3권</option>
+				<option value="4권">4권</option>
+				<option value="5권 이상">5권 이상</option>
 			</select>
 		</div>
 		

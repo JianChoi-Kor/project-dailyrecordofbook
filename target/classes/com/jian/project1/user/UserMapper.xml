@@ -6,15 +6,28 @@
   
 <mapper namespace="com.jian.project1.user.UserMapper">
 
-	<select id="selUser" parameterType="UserEntity" resultType="UserEntity">
-		SELECT * FROM project1_user WHERE userEmail = #{userEmail}
-	</select>
-	
 	<insert id="insUser" parameterType="UserEntity">
 		INSERT INTO project1_user
 		( userEmail, userPw, salt, userNm, userPn, searchInfo, readingVolume)
 		VALUES
 		( #{userEmail}, #{userPw}, #{salt}, #{userNm}, #{userPn}, #{searchInfo}, #{readingVolume} )
 	</insert>
+
+	<select id="selUser" parameterType="UserEntity" resultType="UserEntity">
+		SELECT * FROM project1_user WHERE userEmail = #{userEmail}
+	</select>
+	
+	<update id="updAuthKey" parameterType="UserEntity">
+		UPDATE project1_user
+		SET authKey = #{authKey}
+		WHERE userEmail = #{userEmail}
+	</update>
+	
+	<update id="updAuthStatus" parameterType="UserEntity">
+		UPDATE project1_user
+		SET authStatus = 1
+		WHERE userEmail = #{userEmail}
+	</update>
+	
 	
 </mapper>

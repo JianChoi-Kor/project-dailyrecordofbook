@@ -8,4 +8,6 @@ import com.jian.project1.model.UserEntity;
 public interface UserMapper {
 	UserEntity selUser(UserEntity p);
 	int insUser(UserEntity p);
+	int updAuthKey(UserEntity p);
+	int updAuthStatus(UserEntity p);
 }
