@@ -13,9 +13,14 @@ if(joinBtnElem) {
 	var readingVolumeElem = document.querySelector('#readingVolume')
 	
 	function ajax() {
-		//TODO 이메일 입력시 @ 등 체크해야할 것들 늘리기
-		if(userEmailElem.value === '') {
+		// userEmail만 변수로 만들어서 사용
+		userEmail = userEmailElem.value
+		
+		if(userEmail === '') {
 			alert('이메일을 입력해주세요.')
+			return
+		} else if (userEmail.indexOf('@') == '-1' || userEmail.indexOf('.') == '-1'){
+			alert('잘못된 이메일 형식입니다.')
 			return
 		} else if(userPwElem.value === '') {
 			alert('비밀번호를 입력해주세요.')

@@ -41,6 +41,14 @@ public class UserController {
 		
 		return loginResult;
 	}
+	
+	
+	// 로그아웃
+	@GetMapping("/logout")
+	public String logout(HttpSession hs) {
+		hs.invalidate();
+		return "redirect:/user/login";
+	}
 
 	
 	// 회원가입
