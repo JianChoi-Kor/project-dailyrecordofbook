@@ -10,7 +10,7 @@
 /* home slide 부분 css start */
 .top-slide-container {
     margin: 0 auto;
-    width: 800px;
+    width: 1040px;
     height: 350px;
     position: relative;
     overflow: hidden;
@@ -56,3 +56,82 @@
 }
 
 /* home slide 부분 css end */
+
+
+/* icon 부분 start */
+.middle {
+    margin: 35px auto;
+    max-width: 1040px;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.icon {
+    margin-bottom: 15px;
+    font-size: 80px;
+}
+
+.h3 {
+    font-size: 45px;
+}
+
+.h3 > span {
+    font-size: 30px;
+}
+
+.h6 {
+    margin-top: 5px;
+    font-size: 15px;
+}
+
+.middle-etc {
+    max-width: 1040px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: 60px auto;
+}
+
+.middle-etc > h3 {
+    margin: 2px 0;
+}
+
+.middle-etc > h4 {
+    margin-top: 15px;
+}
+
+@media screen and (max-width: 780px) {
+    .icon {
+        margin-bottom: 10px;
+        font-size: 45px;
+    }
+
+    .h3 {
+        font-size: 28px;
+    }
+
+    .h3 > span {
+        font-size: 16px;
+    }
+
+    .h6 {
+        margin-top: 3px;
+        font-size: 13px;
+    }
+
+    .middle-etc {
+        margin: 0 auto;
+    }
+
+    .middle-etc > h3 {
+        font-size: 15px;
+        margin: 2px 0;
+    }
+    
+    .middle-etc > h4 {
+        font-size: 12px;
+        margin-top: 8px;
+    }
+}
+/* icon 부분 end */

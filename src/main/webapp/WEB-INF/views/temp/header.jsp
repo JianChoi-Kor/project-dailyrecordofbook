@@ -6,7 +6,7 @@
     <nav class="navbar">
         <div class="navbar_logo_up">
             <a href="/main/home">
-                <img src="/res/img/logo_up.jpg">
+                <img src="/res/img/logo_down.jpg">
             </a>
         </div>
         <div class="navbar_logo_down">

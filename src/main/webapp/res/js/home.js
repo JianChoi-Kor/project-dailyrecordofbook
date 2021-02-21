@@ -54,14 +54,14 @@ const moveToNextSlide = () => {
     if(index >= slides.length -1) return
     index++
     slide.style.transform = `translateX(${-slideWidth * index}px)`
-    slide.style.transition = '.7s'
+    slide.style.transition = '1.3s'
 }
 
 const moveToPreviousSlide = () => {
     if(index <= 0) return
     index--
     slide.style.transform = `translateX(${-slideWidth * index}px)`
-    slide.style.transition = '.7s'
+    slide.style.transition = '1.3s'
 }
 
 slideContainer.addEventListener('mouseenter', () => {
