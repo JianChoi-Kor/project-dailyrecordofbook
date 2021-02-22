@@ -8,6 +8,10 @@
 
 
 /* home slide 부분 css start */
+.mini-slide-container {
+	display: none;
+}
+
 .top-slide-container {
     margin: 0 auto;
     width: 1040px;
@@ -55,7 +59,25 @@
     outline: none;
 }
 
+@media screen and (max-width: 780px) {
+	.top-slide-container {
+    	width: 100%;
+    	height: auto;
+	}
+	
+	#next-btn, #prev-btn {
+    	cursor: pointer;
+    	background: transparent;
+    	font-size: 20px;
+    	border: none;
+    	padding: 10px;
+    	color: white;
+	}
+    
+}
 /* home slide 부분 css end */
+
+
 
 
 /* icon 부분 start */

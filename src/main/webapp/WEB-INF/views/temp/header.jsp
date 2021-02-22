@@ -16,10 +16,9 @@
         </div>
 
         <ul class="navbar_menu">
-            <li><a href="">1일 독서 모임</a></li>
-            <li><a href="">정규 독서 모임</a></li>
-            <li><a href="">온라인 독서 모임</a></li>
-            <li><a href="">글쓰기 모임</a></li>
+            <li><a href="">책방일지는</a></li>
+            <li><a href="">책방일지 독서 모임</a></li>
+            <li><a href="">책방일지와 함께하며</a></li>
         </ul>
 
         <ul class="navbar_login">

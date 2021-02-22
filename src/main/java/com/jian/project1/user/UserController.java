@@ -5,12 +5,16 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
+import com.jian.project1.Const;
+import com.jian.project1.SecurityUtils;
 import com.jian.project1.mail.MailSendService;
 import com.jian.project1.model.UserEntity;
 
@@ -23,6 +27,9 @@ public class UserController {
 	
 	@Autowired
 	private MailSendService mailSender;
+	
+	@Autowired
+	private SecurityUtils sUtils;
 	
 	
     // 로그인
@@ -117,4 +124,18 @@ public class UserController {
 		
 	}
 	
+
+	// 마이 페이지
+	@GetMapping("/profile")
+	public void profile(Model model, UserEntity p, HttpSession hs) {
+		p.setUserPk(sUtils.getLoginUserPk(hs));
+		model.addAttribute(Const.KEY_DATE, service.selUser(p));
+	}
+	
+	@ResponseBody
+	@PostMapping("/profile")
+	public int profile(MultipartFile profileImg, HttpSession hs) {
+		System.out.println("fileName : " + profileImg.getOriginalFilename());
+		return service.uploadProfile(profileImg, hs);
+	}
 }

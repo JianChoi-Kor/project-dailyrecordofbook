@@ -44,7 +44,7 @@ slide.addEventListener('transitionend', () => {
     } 
     if(slides[index].id === lastClone.id) {
         slide.style.transition = 'none'
-        index = slide.length - 2
+        index = slides.length - 2
         slide.style.transform = `translateX(${-slideWidth * index}px)`
     } 
 })
@@ -73,5 +73,12 @@ slideContainer.addEventListener('mouseleave', startSlide)
 nextBtn.addEventListener('click', moveToNextSlide)
 prevBtn.addEventListener('click', moveToPreviousSlide)
 
-startSlide()
+
 // home slide부분 js end
+
+
+
+
+
+
+

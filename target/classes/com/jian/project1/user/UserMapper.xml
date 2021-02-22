@@ -13,8 +13,19 @@
 		( #{userEmail}, #{userPw}, #{salt}, #{userNm}, #{userPn}, #{searchInfo}, #{readingVolume} )
 	</insert>
 
-	<select id="selUser" parameterType="UserEntity" resultType="UserEntity">
-		SELECT * FROM project1_user WHERE userEmail = #{userEmail}
+	<select id="selUser" resultType="UserEntity">
+		SELECT 
+			userPk, userEmail, userPw, salt, userNm, userPn, profileImg, authStatus
+			, DATE_FORMAT(regDt, '%Y년 %m월 %d일 (%H:%i)') as regDt
+		FROM project1_user
+		<where>
+			<if test=" userEmail != null and userEmail !='' ">
+				userEmail = #{userEmail}
+			</if>
+			<if test="userPk > 0">
+				userPk = #{userPk}
+			</if>
+		</where>
 	</select>
 	
 	<update id="updAuthKey" parameterType="UserEntity">
@@ -29,5 +40,20 @@
 		WHERE userEmail = #{userEmail}
 	</update>
 	
+	<update id="updUser">
+		UPDATE project1_user
+		<set>
+			<if test=" userPw != null and userPw != ''">
+				userPw = #{userPw},
+			</if>
+			<if test=" salt != null and salt != ''">
+				salt = #{salt},
+			</if>
+			<if test=" profileImg != null">
+				profileImg = #{profileImg}
+			</if>
+		</set>
+		WHERE userPk = #{userPk}
+	</update>
 	
 </mapper>

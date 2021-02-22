@@ -28,6 +28,7 @@
 	</div>
 </div>
 
+
 <!-- 아이콘 부분 -->
 <div class="middle">
 	<div class="middle-first">

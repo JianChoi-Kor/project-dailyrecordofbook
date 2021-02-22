@@ -10,4 +10,5 @@ public interface UserMapper {
 	int insUser(UserEntity p);
 	int updAuthKey(UserEntity p);
 	int updAuthStatus(UserEntity p);
+	int updUser(UserEntity p);
 }

@@ -1,11 +1,15 @@
 package com.jian.project1.user;
 
+import java.io.File;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.jian.project1.Const;
+import com.jian.project1.FileUtils;
 import com.jian.project1.SecurityUtils;
 import com.jian.project1.model.UserEntity;
 
@@ -17,6 +21,9 @@ public class UserService {
 	
 	@Autowired
 	private SecurityUtils sUtils;
+	
+	@Autowired
+	private FileUtils fUtils;
 	
 	
 	// email 중복 체크하는 메서드
@@ -98,6 +105,40 @@ public class UserService {
 		} else {
 			return 2; // authKey가 다른 경우
 		}
+	}
+	
+	
+	// 프로필 업로드 메서드
+	public int uploadProfile(MultipartFile mf, HttpSession hs) {
+		int userPk = sUtils.getLoginUserPk(hs);
+		if(userPk == 0 || mf == null) { // 로그인이 안 되어 있는 경우, 파일이 없는 경우
+			return 0;
+		}
+		
+		String folder = "/res/img/user/" + userPk;
+		String profileImg = fUtils.transferTo(mf, folder);
+		
+		if(profileImg == null) { // 파일 생성 실패
+			return 0;
+		}
+		
+		UserEntity p = new UserEntity();
+		p.setUserPk(userPk);
+		
+		UserEntity userInfo = mapper.selUser(p);
+		if(userInfo.getProfileImg() != null) {
+			String basePath = fUtils.getBasePath(folder);
+			File file = new File(basePath, userInfo.getProfileImg());
+			if(file.exists()) {
+				file.delete();
+			}
+		}
+		p.setProfileImg(profileImg);
+		return mapper.updUser(p);
+	}
+	
+	public UserEntity selUser(UserEntity p) {
+		return mapper.selUser(p);
 	}
 }
 
