@@ -11,7 +11,7 @@
         </div>
         <div class="navbar_logo_down">
             <a href="">
-                <img src="/res/img/logo_down.jpg">
+                <img src="/res/img/logo_downdown.jpg">
             </a>
         </div>
 

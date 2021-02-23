@@ -6,7 +6,7 @@ const slideContainer = document.querySelector('.top-slide-container')
 const slide = document.querySelector('.slides')
 const nextBtn = document.querySelector('#next-btn')
 const prevBtn = document.querySelector('#prev-btn')
-const interval = 3500;
+const interval = 3500
 
 let slides = document.querySelectorAll('.slide')
 let index = 1

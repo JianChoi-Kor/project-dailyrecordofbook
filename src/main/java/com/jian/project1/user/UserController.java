@@ -16,6 +16,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.jian.project1.Const;
 import com.jian.project1.SecurityUtils;
 import com.jian.project1.mail.MailSendService;
+import com.jian.project1.model.UserDTO;
 import com.jian.project1.model.UserEntity;
 
 @Controller
@@ -138,4 +139,20 @@ public class UserController {
 		System.out.println("fileName : " + profileImg.getOriginalFilename());
 		return service.uploadProfile(profileImg, hs);
 	}
+	
+	
+	// 비밀번호 변경
+	@GetMapping("/changePw")
+	public void changePw() {
+		
+	}
+	
+	@ResponseBody
+	@PostMapping("/changePw")
+	public int changePw(@RequestBody UserDTO p, HttpSession hs) {
+		int changePwResult = service.changePw(p, hs);
+		return 0;
+	}
+	
+	
 }

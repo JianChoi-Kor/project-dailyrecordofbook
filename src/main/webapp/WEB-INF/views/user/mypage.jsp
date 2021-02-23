@@ -14,26 +14,37 @@
 		<img src="/res/img/${src}" alt="프로필 이미지">
 	</div>
 
-	<div>
-		<h3>프로필 이미지 업로드</h3>
+	<div class="innerFrm">
+		<h3 class="h3">프로필 이미지 업로드</h3>
 		<div>
-			<input class="selectImgBtn" type="file" id="profileImg" accept="image/*">
-		</div>
-		<div>
-			<input class="uploadImgBtn" type="button" value="업로드" onclick="profileUpload()">
+			<input class="imgBtn" type="file" id="profileImg" accept="image/*">
+			<input class="imgBtn" type="button" value="이미지 업로드" onclick="profileUpload()">
 		</div>
 	</div>
 	
-	<div>이메일 : ${requestScope.data.userEmail}</div>
-	<div>이름 : ${requestScope.data.userNm}</div>
-	<div>전화번호 : ${requestScope.data.userPn}</div>
-	<div>가입일 : ${requestScope.data.regDt}</div>
+	<div class="innerFrm">
+		<h3 class="h3">회원 정보</h3>
+		<div class="detail"><label>이메일 : </label>${requestScope.data.userEmail}</div>
+		<div class="detail"><label>이름 : </label>${requestScope.data.userNm}</div>
+		<div class="detail"><label>전화번호 : </label>${requestScope.data.userPn}</div>
+		<div class="detail"><label>가입일 : </label>${requestScope.data.regDt}</div>
+	</div>
 	
-	<div>
-		<input type="button" value="비밀번호 변경">
+	<!-- 하드코딩 한 부분 나중에 DB랑 연동하여 작업 + 업로드 하는 방법도 생각 -->
+	<div class="innerFrm">
+		<h3 class="h3">참가한 모임</h3>
+		<ul>
+			<li class="detail">하루 독서모임 "브람스를 좋아하세요..." / 2020.12.03</li>
+			<li class="detail">하루 독서모임 "맥베스" / 2020.12.13</li>
+			<li class="detail">하루 독서모임 "시계태엽 오렌지" / 2021.03.01</li>
+		</ul>
 	</div>
-	<div>
-		<input type="button" value="회원탈퇴">
+	
+	<div class="btnFrm">
+		<input class="Btn changePwBtn" type="button" value="비밀번호 변경" onclick="location.href='/user/changePw'">
+		<input class="Btn withDrawalBtn" type="button" value="&nbsp&nbsp&nbsp회원 탈퇴&nbsp&nbsp&nbsp">
 	</div>
+
+
 
 </div>

@@ -83,7 +83,7 @@
     </div>
 
     <div class="btn_area_double">
-        <button class="terms_btn" id="btnCancle" onclick="location.href=''/board/home'">취소</button>
-        <button class="terms_btn" id="btnAgree" onclick="location.href=''/user/join'">확인</button>
+        <button class="terms_btn" id="btnCancle" onclick="location.href='/board/home'">취소</button>
+        <button class="terms_btn" id="btnAgree" onclick="location.href='/user/join'">확인</button>
     </div>
 </form>

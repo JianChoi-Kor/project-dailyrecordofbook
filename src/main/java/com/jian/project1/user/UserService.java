@@ -11,6 +11,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.jian.project1.Const;
 import com.jian.project1.FileUtils;
 import com.jian.project1.SecurityUtils;
+import com.jian.project1.model.UserDTO;
 import com.jian.project1.model.UserEntity;
 
 @Service
@@ -140,6 +141,38 @@ public class UserService {
 	public UserEntity selUser(UserEntity p) {
 		return mapper.selUser(p);
 	}
+	
+	
+	public int changePw(UserDTO p, HttpSession hs) {
+		UserEntity loginUser = sUtils.getLoginUser(hs);
+		
+		// 기존 비밀번호의 salt를 가지고 온다.
+		String salt = loginUser.getSalt();
+		System.out.println("salt : " + salt);
+		String userPn = loginUser.getUserPn();
+		System.out.println(userPn);
+		
+		// 기존 비밀번호 확인
+		if(p.getUserPw().equals(loginUser.getUserPw())) {
+			// 새로 입력된 비밀번호 두개 비교
+			if(p.getNewUserPw().equals(p.getNewUserPwRe())) {
+				// 새로운 비밀번호를 userPw에 Set
+				p.setUserPw(p.getNewUserPw());
+				// 비밀번호 업데이트 return 1
+				return mapper.updUser(p);
+			} else {
+				return 3;
+			}
+		} else {
+			return 2;
+		}
+	}
+	
+	
+	
+	
+	
+	
 }
 
 

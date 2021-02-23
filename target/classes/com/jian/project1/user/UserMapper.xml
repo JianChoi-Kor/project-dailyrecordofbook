@@ -49,6 +49,9 @@
 			<if test=" salt != null and salt != ''">
 				salt = #{salt},
 			</if>
+			<if test=" userPw != null and userPw != ''">
+				userPw = #{userPw},
+			</if>
 			<if test=" profileImg != null">
 				profileImg = #{profileImg}
 			</if>
