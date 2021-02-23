@@ -29,8 +29,21 @@
             	</c:when>
             	<c:otherwise>
             		<!-- mypage 만들어야 함 (안에 비밀번호 변경도) -->
-            		<li><a href="/user/mypage">${sessionScope.loginUser.userNm}님 회원정보</a></li>
-            		<li><a href="/user/logout">로그아웃</a></li>
+
+					<div class="profileImg">
+					<c:choose>
+						<c:when test="${sessionScope.loginUser.profileImg == null}">
+							<c:set var = "src" value="profile.jpg"/>
+						</c:when>
+						<c:otherwise>
+							<c:set var="src" value="user/${sessionScope.loginUser.userPk}/${sessionScope.loginUser.profileImg}"/>
+						</c:otherwise>	
+					</c:choose>
+						<img src="/res/img/${src}" alt="프로필 이미지">
+					</div>
+					
+            		<li class="userInfo"><a href="/user/mypage">${sessionScope.loginUser.userNm}님 회원정보</a></li>
+            		<li class="userInfo"><a href="/user/logout">로그아웃</a></li>
             	</c:otherwise>
             </c:choose>
         </ul>

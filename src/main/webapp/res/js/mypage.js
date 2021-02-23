@@ -15,7 +15,7 @@ function profileUpload() {
 	var formData = new FormData();
 	formData.append('profileImg', profileImgElem.files[0])
 	
-	fetch('/user/profile', {
+	fetch('/user/mypage', {
 		method: 'post',
 		body: formData
 	}).then(res => res.json())

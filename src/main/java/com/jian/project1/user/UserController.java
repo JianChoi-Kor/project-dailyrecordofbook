@@ -126,15 +126,15 @@ public class UserController {
 	
 
 	// 마이 페이지
-	@GetMapping("/profile")
-	public void profile(Model model, UserEntity p, HttpSession hs) {
+	@GetMapping("/mypage")
+	public void mypage(Model model, UserEntity p, HttpSession hs) {
 		p.setUserPk(sUtils.getLoginUserPk(hs));
 		model.addAttribute(Const.KEY_DATE, service.selUser(p));
 	}
 	
 	@ResponseBody
-	@PostMapping("/profile")
-	public int profile(MultipartFile profileImg, HttpSession hs) {
+	@PostMapping("/mypage")
+	public int mypage(MultipartFile profileImg, HttpSession hs) {
 		System.out.println("fileName : " + profileImg.getOriginalFilename());
 		return service.uploadProfile(profileImg, hs);
 	}

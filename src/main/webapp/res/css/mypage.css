@@ -1,0 +1,18 @@
+@charset "UTF-8";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.profileFram {
+	margin: 50px 50px;
+	text-align: center;
+}
+
+.imgFrame>img {
+	width: 250px;
+	height: 250px;
+	border-radius: 250px;
+}
