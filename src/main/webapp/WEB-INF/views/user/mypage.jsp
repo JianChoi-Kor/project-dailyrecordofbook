@@ -17,22 +17,23 @@
 	<div>
 		<h3>프로필 이미지 업로드</h3>
 		<div>
-			<input type="file" id="profileImg" accept="image/*">
+			<input class="selectImgBtn" type="file" id="profileImg" accept="image/*">
 		</div>
 		<div>
-			<input type="button" value="업로드" onclick="profileUpload()">
+			<input class="uploadImgBtn" type="button" value="업로드" onclick="profileUpload()">
 		</div>
 	</div>
 	
-	<div>아이디 : ${requestScope.data.userEmail}</div>
+	<div>이메일 : ${requestScope.data.userEmail}</div>
 	<div>이름 : ${requestScope.data.userNm}</div>
+	<div>전화번호 : ${requestScope.data.userPn}</div>
 	<div>가입일 : ${requestScope.data.regDt}</div>
 	
 	<div>
-		<input type="button" value="이메일 찾기">
+		<input type="button" value="비밀번호 변경">
 	</div>
 	<div>
-		<input type="button" value="비밀번호 찾기">
+		<input type="button" value="회원탈퇴">
 	</div>
 
 </div>

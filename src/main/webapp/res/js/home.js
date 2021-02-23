@@ -6,7 +6,7 @@ const slideContainer = document.querySelector('.top-slide-container')
 const slide = document.querySelector('.slides')
 const nextBtn = document.querySelector('#next-btn')
 const prevBtn = document.querySelector('#prev-btn')
-const interval = 3000;
+const interval = 3500;
 
 let slides = document.querySelectorAll('.slide')
 let index = 1
@@ -21,7 +21,14 @@ lastClone.id = 'last-clone'
 slide.append(firstClone)
 slide.prepend(lastClone)
 
-const slideWidth = slides[index].clientWidth
+
+var slideWidth
+
+function resetSlideWidth() {
+	slideWidth = slides[index].clientWidth
+}
+
+resetSlideWidth()
 
 slide.style.transform = `translateX(${-slideWidth * index}px)`
 
@@ -73,11 +80,12 @@ slideContainer.addEventListener('mouseleave', startSlide)
 nextBtn.addEventListener('click', moveToNextSlide)
 prevBtn.addEventListener('click', moveToPreviousSlide)
 
+startSlide()
+
 
 // home slide부분 js end
 
-
-
+window.addEventListener('resize', resetSlideWidth)
 
 
 
