@@ -151,7 +151,7 @@ public class UserController {
 	@PostMapping("/changePw")
 	public int changePw(@RequestBody UserDTO p, HttpSession hs) {
 		int changePwResult = service.changePw(p, hs);
-		return 0;
+		return changePwResult;
 	}
 	
 	

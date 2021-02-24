@@ -25,7 +25,7 @@
 			<div class="left">
 				<input type="password" name="userPw" placeholder="비밀번호를 입력해주세요.">
 			</div>
-			<p>- 비밀번호는 8~16자, 영문, 숫자, 특수문자를 포함해야 합니다.</p>
+			<p>- 비밀번호는 숫자와 영문자 조합으로 8~20자리를 사용해야 합니다.</p>
 			<h3 class="h3 h3_">
 				비밀번호 확인 <span> * </span>
 			</h3>

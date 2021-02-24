@@ -76,9 +76,12 @@ public class UserService {
 		
 		
 		// 메모리에 올려둘 필요가 없는 값들을 지움
-		loginUser.setUserPw(null);
-		loginUser.setSalt(null);
+		loginUser.setUserPn(null);
 		loginUser.setRegDt(null);
+		loginUser.setSearchInfo(null);
+		loginUser.setReadingVolume(null);
+		
+		
 		
 		// 실수를 막기 위해서 Const 클래스를 만들고 키 값을 변수로 만들어서 사용
 		hs.setAttribute(Const.KEY_LOGINUSER, loginUser);
@@ -146,25 +149,43 @@ public class UserService {
 	public int changePw(UserDTO p, HttpSession hs) {
 		UserEntity loginUser = sUtils.getLoginUser(hs);
 		
-		// 기존 비밀번호의 salt를 가지고 온다.
+		// 기존의 비밀번호 + salt
+		String loginUserPw = loginUser.getUserPw();
+		System.out.println("기존의 비밀번호 : " + loginUserPw);
 		String salt = loginUser.getSalt();
-		System.out.println("salt : " + salt);
-		String userPn = loginUser.getUserPn();
-		System.out.println(userPn);
+		
+		// 입력받은 비밀번호
+		String inputPw = p.getUserPw();
+		// 입력받은 비밀번호로 hashPw 생성
+		String inputUserHashPw = sUtils.getHashPw(inputPw, salt);
+		
+		// 새로운 비밀번호
+		String newPw = p.getNewUserPw();
+		String newPwRe = p.getNewUserPwRe();
+		
+		// 기존의 비밀번호가 일치하고 새로운 비밀번호 두개도 일치한다면 사용할 newHashPw
+		String newHashPw = sUtils.getHashPw(newPw, salt);
 		
 		// 기존 비밀번호 확인
-		if(p.getUserPw().equals(loginUser.getUserPw())) {
+		if(inputUserHashPw.equals(loginUserPw)) {
+			
+			// 기존의 비밀번호와 바꾸려는 비밀번호가 같다면?
+			if(loginUserPw.equals(newHashPw)) {
+				return 4; // 새로운 비밀번호를 입력해주세요.
+			}
+			
 			// 새로 입력된 비밀번호 두개 비교
-			if(p.getNewUserPw().equals(p.getNewUserPwRe())) {
+			if(newPw.equals(newPwRe)) {
+				
 				// 새로운 비밀번호를 userPw에 Set
-				p.setUserPw(p.getNewUserPw());
+				loginUser.setUserPw(newHashPw);
 				// 비밀번호 업데이트 return 1
-				return mapper.updUser(p);
+				return mapper.updUser(loginUser);
 			} else {
-				return 3;
+				return 3; // 새로 입력된 두개의 비밀번호가 다른 경우
 			}
 		} else {
-			return 2;
+			return 2; // 기존의 비밀번호가 틀린 경우
 		}
 	}
 	
