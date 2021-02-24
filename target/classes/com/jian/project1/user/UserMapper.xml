@@ -6,6 +6,7 @@
   
 <mapper namespace="com.jian.project1.user.UserMapper">
 
+
 	<insert id="insUser" parameterType="UserEntity">
 		INSERT INTO project1_user
 		( userEmail, userPw, salt, userNm, userPn, searchInfo, readingVolume)
@@ -13,9 +14,10 @@
 		( #{userEmail}, #{userPw}, #{salt}, #{userNm}, #{userPn}, #{searchInfo}, #{readingVolume} )
 	</insert>
 
+
 	<select id="selUser" resultType="UserEntity">
 		SELECT 
-			userPk, userEmail, userPw, salt, userNm, userPn, profileImg, authStatus
+			userPk, userEmail, userPw, salt, userNm, userPn, profileImg, authKey, authStatus
 			, DATE_FORMAT(regDt, '%Y년 %m월 %d일 (%H:%i)') as regDt
 		FROM project1_user
 		<where>
@@ -28,6 +30,7 @@
 		</where>
 	</select>
 	
+	
 	<update id="updAuthKey" parameterType="UserEntity">
 		UPDATE project1_user
 		SET authKey = #{authKey}
@@ -39,6 +42,7 @@
 		SET authStatus = 1
 		WHERE userEmail = #{userEmail}
 	</update>
+	
 	
 	<update id="updUser">
 		UPDATE project1_user
@@ -58,5 +62,12 @@
 		</set>
 		WHERE userPk = #{userPk}
 	</update>
+	
+	
+	<delete id="delUser">
+		DELETE FROM project1_user
+		WHERE userPk = #{userPk}
+	</delete>
+	
 	
 </mapper>

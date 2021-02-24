@@ -98,10 +98,13 @@ public class UserService {
 	
 	// 인증메일 클릭시 authStatus 업데이트하는 메서드
 	public int chkAndUpdAuthStatus(UserEntity p) {
+		System.out.println(p.getAuthKey());
 		UserEntity loginUser = mapper.selUser(p);
 		
 		// 입력된 이메일의 authKey 값을 가지고 온다.
 		String loginUserAuthKey = loginUser.getAuthKey();
+		
+		System.out.println(loginUserAuthKey);
 		
 		// 입력된 이메일의 authKey 값과 메일 인증에서 받은 authKey 값이 같은지 확인
 		if(loginUserAuthKey.equals(p.getAuthKey())) {
@@ -190,9 +193,26 @@ public class UserService {
 	}
 	
 	
-	
-	
-	
+	public int withDrawal(UserEntity p, HttpSession hs) {
+		UserEntity loginUser = sUtils.getLoginUser(hs);
+		
+		// 기존의 비밀번호 + salt
+		String loginUserPw = loginUser.getUserPw();
+		String salt = loginUser.getSalt();
+		
+		// 입력받은 비밀번호
+		String inputPw = p.getUserPw();
+		
+		// 입력받은 비밀번호로 hashPw 생성
+		String inputUserHashPw = sUtils.getHashPw(inputPw, salt);
+		
+		// 비밀번호 확인
+		if(inputUserHashPw.equals(loginUserPw)) {
+			return mapper.delUser(loginUser);
+		} else {
+			return 2; // 비밀번호가 다릅니다.
+		}
+	}
 	
 }
 

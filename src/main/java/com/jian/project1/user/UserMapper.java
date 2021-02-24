@@ -11,4 +11,6 @@ public interface UserMapper {
 	int updAuthKey(UserEntity p);
 	int updAuthStatus(UserEntity p);
 	int updUser(UserEntity p);
+	int delUser(UserEntity p);
+	
 }

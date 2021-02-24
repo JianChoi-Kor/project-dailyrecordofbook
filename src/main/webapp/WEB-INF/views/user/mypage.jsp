@@ -42,7 +42,7 @@
 	
 	<div class="btnFrm">
 		<input class="Btn changePwBtn" type="button" value="비밀번호 변경" onclick="location.href='/user/changePw'">
-		<input class="Btn withDrawalBtn" type="button" value="&nbsp&nbsp&nbsp회원 탈퇴&nbsp&nbsp&nbsp">
+		<input class="Btn withDrawalBtn" type="button" value="&nbsp&nbsp&nbsp회원 탈퇴&nbsp&nbsp&nbsp" onclick="location.href='/user/withDrawal'">
 	</div>
 
 

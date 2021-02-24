@@ -92,10 +92,12 @@ public class UserController {
 		// request에서 값을 받아온다.
 		String userEmail = request.getParameter("userEmail");
 		String authKey = request.getParameter("authKey");
+		
 		// 받은 값을 저장
 		p.setUserEmail(userEmail);
 		p.setAuthKey(authKey);
 
+		
 		// 이메일과 authKey가 일치할 경우 authStatus 업데이트
 		int joinConfirmResult = service.chkAndUpdAuthStatus(p);
 		
@@ -155,4 +157,17 @@ public class UserController {
 	}
 	
 	
+	// 회원 탈퇴
+	@GetMapping("/withDrawal")
+	public void widthDrawal() {
+		
+	}
+	
+	@ResponseBody
+	@PostMapping("/withDrawal")
+	public int withDrawal(@RequestBody UserEntity p, HttpSession hs) {
+		int withDrawalResult = service.withDrawal(p, hs);
+		System.out.println(p.getUserPk());
+		return withDrawalResult;
+	}
 }
