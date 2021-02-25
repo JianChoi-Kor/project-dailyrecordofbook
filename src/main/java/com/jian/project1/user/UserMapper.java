@@ -12,5 +12,6 @@ public interface UserMapper {
 	int updAuthStatus(UserEntity p);
 	int updUser(UserEntity p);
 	int delUser(UserEntity p);
-	
+	UserEntity selUserEmail(UserEntity p);
+	UserEntity selUserPw(UserEntity p);
 }

@@ -42,12 +42,7 @@ public class UserController {
 	@ResponseBody
 	@PostMapping("/login")
 	public int login(@RequestBody UserEntity p, HttpSession hs) {
-		System.out.println("inputUserEmail : " + p.getUserEmail());
-		System.out.println("inputUserPw : " + p.getUserPw());
-		
-		int loginResult = service.login(p, hs);
-		
-		return loginResult;
+		return service.login(p, hs);
 	}
 	
 	
@@ -152,8 +147,7 @@ public class UserController {
 	@ResponseBody
 	@PostMapping("/changePw")
 	public int changePw(@RequestBody UserDTO p, HttpSession hs) {
-		int changePwResult = service.changePw(p, hs);
-		return changePwResult;
+		return service.changePw(p, hs);
 	}
 	
 	
@@ -166,8 +160,51 @@ public class UserController {
 	@ResponseBody
 	@PostMapping("/withDrawal")
 	public int withDrawal(@RequestBody UserEntity p, HttpSession hs) {
-		int withDrawalResult = service.withDrawal(p, hs);
 		System.out.println(p.getUserPk());
-		return withDrawalResult;
+		return service.withDrawal(p, hs);
 	}
+	
+	
+	// 아이디 찾기
+	@GetMapping("/findEmail")
+	public void findEmail() {
+		
+	}
+	
+	@ResponseBody
+	@PostMapping("/findEmail")
+	public UserEntity findEmail(@RequestBody UserEntity p) {
+		return service.findEmail(p);
+	}
+	
+	
+	// 비밀번호 찾기
+	@GetMapping("/findPw")
+	public void findPw() {
+		
+	}
+	
+
+	
+	@ResponseBody
+	@PostMapping("/findPw")
+	public int findPw(@RequestBody UserEntity p) {
+		
+		// 이메일, 이름, 전화번호 맞는지 체크하고 새로운 비밀번호 업데이트
+		int chkUser = service.chkUserInfo(p);
+		
+		if(chkUser == 1) {
+			return chkUser;
+		}
+		return chkUser;
+	}
+	
+	
 }
+
+
+
+
+
+
+

@@ -31,6 +31,24 @@
 	</select>
 	
 	
+	<select id="selUserEmail" parameterType="UserEntity" resultType="UserEntity">
+		SELECT userEmail
+		FROM project1_user
+		WHERE userNm = #{userNm}
+		AND userPn = #{userPn}
+	</select>
+	
+	
+	<!-- 쿼리문 하나로 사용할 수 있을 것 같은데? -->
+	<select id="selUserPw" parameterType="UserEntity" resultType="UserEntity">
+		SELECT userPk, userEmail, userPk
+		FROM project1_user
+		WHERE userEmail = #{userEmail}
+		AND userNm = #{userNm}
+		AND userPn = #{userPn}
+	</select>
+	
+	
 	<update id="updAuthKey" parameterType="UserEntity">
 		UPDATE project1_user
 		SET authKey = #{authKey}

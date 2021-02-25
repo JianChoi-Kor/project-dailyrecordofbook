@@ -91,15 +91,15 @@
 
 .icon {
     margin-bottom: 15px;
-    font-size: 80px;
+    font-size: 55px;
 }
 
 .h3 {
-    font-size: 45px;
+    font-size: 38px;
 }
 
 .h3 > span {
-    font-size: 30px;
+    font-size: 27px;
 }
 
 .h6 {
@@ -122,6 +122,46 @@
 .middle-etc > h4 {
     margin-top: 15px;
 }
+
+
+.inquiry_btn {
+	background: inherit; 
+	border:none; 
+	box-shadow:none; 
+	border-radius:0; 
+	padding:0; 
+	overflow:visible; 
+	cursor:pointer
+}
+
+.inquiry_btn {
+	position: fixed;
+	display: flex;
+	width: 115px;
+	height: 115px;
+	background-color: #ebcacf;
+	color: white;
+	font-size: 21px;
+	border-radius: 115px;
+	justify-content: space-around;
+	top: 68%;
+	left: 83%;
+	cursor:pointer;
+    transition:800ms ease all;
+}
+
+
+.inquiry_btn:hover{
+    background:#fff;
+    color:#ebcacf;
+}
+
+.inquiry_btn:focus{ 	
+    border: none;
+    outline:none;
+}
+
+
 
 @media screen and (max-width: 780px) {
     .icon {
@@ -155,5 +195,26 @@
         font-size: 12px;
         margin-top: 8px;
     }
+    
+    
+	.inquiry_btn {
+		position: fixed;
+		display: flex;
+		width: 65px;
+		height: 65px;
+		background-color: #ebcacf;
+		color: white;
+		font-size: 16px;
+		border-radius: 65px;
+		justify-content: space-around;
+		top: 54%;
+		left: 83%;
+		cursor:pointer;
+    	transition:800ms ease all;
+}
+    
+    
 }
 /* icon 부분 end */
+
+

@@ -17,8 +17,8 @@
 	</form>
 
 	<div class="login_middle">
-		<a href=""><span>이메일 찾기</span></a><span> | </span> 
-		<a href=""><span>비밀번호 찾기</span></a><span>  | </span>
+		<a href="/user/findEmail"><span>이메일 찾기</span></a><span> | </span> 
+		<a href="/user/findPw"><span>비밀번호 찾기</span></a><span>  | </span>
 		<a href="/user/terms"><span>회원가입</span></a>
 	</div>
 </div>

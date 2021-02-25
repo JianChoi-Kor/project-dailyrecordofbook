@@ -11,6 +11,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.jian.project1.Const;
 import com.jian.project1.FileUtils;
 import com.jian.project1.SecurityUtils;
+import com.jian.project1.mail.MailSendService;
 import com.jian.project1.model.UserDTO;
 import com.jian.project1.model.UserEntity;
 
@@ -25,6 +26,9 @@ public class UserService {
 	
 	@Autowired
 	private FileUtils fUtils;
+	
+	@Autowired
+	private MailSendService mailSender;
 	
 	
 	// email 중복 체크하는 메서드
@@ -149,6 +153,7 @@ public class UserService {
 	}
 	
 	
+	// 비밀번호 변경하는 메서드
 	public int changePw(UserDTO p, HttpSession hs) {
 		UserEntity loginUser = sUtils.getLoginUser(hs);
 		
@@ -193,6 +198,7 @@ public class UserService {
 	}
 	
 	
+	// 회원 탈퇴 메서드
 	public int withDrawal(UserEntity p, HttpSession hs) {
 		UserEntity loginUser = sUtils.getLoginUser(hs);
 		
@@ -212,6 +218,46 @@ public class UserService {
 		} else {
 			return 2; // 비밀번호가 다릅니다.
 		}
+	}
+	
+	
+	// 이메일 찾기 메서드
+	public UserEntity findEmail(UserEntity p) {
+		return mapper.selUserEmail(p);
+	}
+	
+	
+
+	
+	// 비밀번호 찾기 메서드 내부에 이메일, 이름, 전화번호 비교하는 메서드
+	// mybatis 동적 쿼리문으로 mapper에 메서드 하나로 같이 사용할 수 있을 것 같은데 나중에 수정
+	public int chkUserInfo(UserEntity p) {
+		UserEntity result = mapper.selUserPw(p);
+		
+		if(result != null) {
+			
+			if(sendTempPw(result) == 1) {
+				return 1;
+			}
+		}
+		return 2;
+	}
+	
+	// 임시 비밀번호를 생성하여 메일로 보내고 DB에 저장하는 메서드
+	public int sendTempPw(UserEntity p) {
+		
+		String userEmail = p.getUserEmail();
+		// 메일 보낼 유저 주소를 파라미터로 준다. 결과는 임시 비밀번호
+		String tempPw = mailSender.sendTempPwMail(userEmail);
+		
+		// salt 생성하고, 임시 비밀번호와 salt로 hashPw 생
+		String salt = sUtils.getSalt();
+		String tempHashPw = sUtils.getHashPw(tempPw, salt);
+		
+		// 임시 비밀번호와 salt를 파라미터에 저장하여 DB에 업데이트
+		p.setSalt(salt);
+		p.setUserPw(tempHashPw);
+		return mapper.updUser(p);
 	}
 	
 }

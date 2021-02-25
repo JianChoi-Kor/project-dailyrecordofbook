@@ -28,7 +28,6 @@ function resetSlideWidth() {
 	slideWidth = slides[index].clientWidth
 }
 
-resetSlideWidth()
 
 slide.style.transform = `translateX(${-slideWidth * index}px)`
 
@@ -80,12 +79,54 @@ slideContainer.addEventListener('mouseleave', startSlide)
 nextBtn.addEventListener('click', moveToNextSlide)
 prevBtn.addEventListener('click', moveToPreviousSlide)
 
+
 startSlide()
 
 
 // home slide부분 js end
 
 window.addEventListener('resize', resetSlideWidth)
+
+
+
+
+
+
+
+// 문의 버튼을 눌렀을 때
+
+var inquiryBtnElem = document.querySelector('#inquiryBtn')
+var chkUserElem = document.querySelector('#chkUser')
+
+if(inquiryBtnElem) {
+	
+	function chk() {
+		chkUser = chkUserElem.value
+		
+		if(chkUser == '') {
+			let chk = confirm('로그인이 필요한 서비스입니다. 로그인 하시겠습니까?')
+			
+			if(chk) {
+				location.href = '/user/login'
+				return
+			} else {
+				location.href = '/main/home'
+				return
+			}
+		} else {
+			location.href = '/user/inquiry'
+			return
+		}
+	}
+
+	inquiryBtnElem.addEventListener('click', chk)
+}
+
+
+
+
+
+
 
 
 

@@ -60,5 +60,25 @@
 	<h4>2021년 2월 기준</h4>
 </div>
 
+
+<div class="main-content">
+	<div><h2>책방일지 - 모집 중인 모임</h2></div>
+	
+	<div><h2>책방일지 - 모집 예정 모임</h2></div>
+
+
+
+
+</div>
+
+${sessionScope.loginUser.userPk}
+
+<!-- 문의 버튼 -->
+<div class="inquiry">
+	<input id="chkUser" type="hidden" value="${sessionScope.loginUser.userPk}">
+	<input type="button" id="inquiryBtn" class="inquiry_btn" value="문의하기">
+</div>
+
+
 <script src="https://kit.fontawesome.com/f094e80764.js"
 	crossorigin="anonymous"></script>

@@ -55,6 +55,7 @@
 			<div class="left">
 				<input type="text" name="userPn" placeholder="전화번호를 입력해주세요.">
 			</div>
+			<p>- 전화번호는 "-" 없이 입력해주세요. ex) 01099998888</p>
 			<p></p>
 		</div>
 
