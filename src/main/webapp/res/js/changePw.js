@@ -91,7 +91,7 @@ if(changePwBtnElem) {
 		// 이메일 @ 앞부분 자르기
 		var uid = uem.substring(0, uem.indexOf('@'))
 		
-		if (!/^[a-zA-Z0-9]{8,20}$/.test(upw)) {
+		if (!/^[a-zA-Z0-9!@#$%^*+=-]{8,20}$/.test(upw)) {
 			alert("비밀번호는 숫자와 영문자 조합으로 8~20자리를 사용해야 합니다.");
 			return false;
 		}

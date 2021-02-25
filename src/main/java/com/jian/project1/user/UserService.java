@@ -73,8 +73,8 @@ public class UserService {
 			return 3;
 		}
 		
-		// 이메일 인증 확인 부분 authStatus 값이 1이 아니라면
-		if(loginUser.getAuthStatus() != 1) {
+		// 이메일 인증 확인 부분 authStatus 값이 0이라면 이메일 인증 전
+		if(loginUser.getAuthStatus() == 0) {
 			return 4;
 		}
 		
