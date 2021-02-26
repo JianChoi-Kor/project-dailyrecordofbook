@@ -129,6 +129,7 @@ public class UserService {
 		String folder = "/res/img/user/" + userPk;
 		String profileImg = fUtils.transferTo(mf, folder);
 		
+		
 		if(profileImg == null) { // 파일 생성 실패
 			return 0;
 		}
@@ -139,6 +140,7 @@ public class UserService {
 		UserEntity userInfo = mapper.selUser(p);
 		if(userInfo.getProfileImg() != null) {
 			String basePath = fUtils.getBasePath(folder);
+			System.out.println(basePath);
 			File file = new File(basePath, userInfo.getProfileImg());
 			if(file.exists()) {
 				file.delete();

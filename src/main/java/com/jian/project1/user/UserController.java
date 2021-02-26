@@ -123,13 +123,14 @@ public class UserController {
 	}
 	
 
-	// 마이 페이지
+	// 마이페이지
 	@GetMapping("/mypage")
 	public void mypage(Model model, UserEntity p, HttpSession hs) {
 		p.setUserPk(sUtils.getLoginUserPk(hs));
 		model.addAttribute(Const.KEY_DATE, service.selUser(p));
 	}
 	
+	// 마이페이지 이미지 업로드
 	@ResponseBody
 	@PostMapping("/mypage")
 	public int mypage(MultipartFile profileImg, HttpSession hs) {
