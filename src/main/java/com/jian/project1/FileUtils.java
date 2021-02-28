@@ -1,6 +1,7 @@
 package com.jian.project1;
 
 import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -9,6 +10,7 @@ import java.util.UUID;
 import javax.imageio.ImageIO;
 import javax.servlet.ServletContext;
 
+import org.apache.commons.codec.binary.Base64;
 import org.imgscalr.Scalr;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -63,6 +65,9 @@ public class FileUtils {
 		return fileNm;
 	}
 
+	
+	
+	/*
 	// imagscalr 라이브러리 사용 img resizing
 	public BufferedImage resizeImg(MultipartFile mf, int resizeWidth, int resizeHeight) {
 
@@ -74,14 +79,54 @@ public class FileUtils {
 			BufferedImage originalImage = ImageIO.read(in);
 			
 			System.out.println("origianlImage width : "  + originalImage.getWidth());
-			rsImg = Scalr.resize(originalImage, Scalr.Method.AUTOMATIC, Scalr.Mode.FIT_TO_WIDTH, resizeWidth);
-			in.close();
-			return rsImg;
+			if(originalImage.getWidth() >= 500) {
+				System.out.println("Start resizing");
+				rsImg = Scalr.resize(originalImage, Scalr.Method.AUTOMATIC, Scalr.Mode.FIT_TO_WIDTH, resizeWidth);
+				in.close();
+				return rsImg;
+				
+			} else {
+				in.close();
+				return originalImage;
+			}
+			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return rsImg;
+		return null;
 	}
+	*/
+	
+
+	
+	
+	/*
+	
+	
+	public void resizeImg(MultipartFile mf, int resizeWidth, int resizeHeight) {
+		BufferedImage rsImg = null;
+		try {
+			InputStream in;
+			in = mf.getInputStream();
+			
+			BufferedImage originalImage = ImageIO.read(in);
+			System.out.println("origianlImage width : "  + originalImage.getWidth());
+			
+			if(originalImage.getWidth() >= 500) {
+				System.out.println("Start resizing");
+				rsImg = Scalr.resize(originalImage, Scalr.Method.AUTOMATIC, Scalr.Mode.FIT_TO_WIDTH, resizeWidth);
+				in.close();
+
+				System.out.println("rsImg width : " + rsImg.getWidth());
+
+			} 
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	*/
 
 }
