@@ -5,7 +5,14 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper namespace="com.jian.project1.board.BoardMapper">
-
+	
+	<insert id="insBoard" useGeneratedKeys="true" keyProperty="boardPk">
+		INSERT INTO project1_board
+		(category, seq, title, ctnt, userPk)
+		SELECT #{category}, IFNULL(MAX(seq), 0) +1, #{title}, #{ctnt}, #{userPk}
+		FROM project1_board
+		WHERE category = #{category}
+	</insert>
 
 	
 </mapper>

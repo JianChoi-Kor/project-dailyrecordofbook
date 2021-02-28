@@ -3,6 +3,8 @@ package com.jian.project1.board;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,46 +14,57 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.jian.project1.SecurityUtils;
+import com.jian.project1.model.BoardEntity;
+
 @Controller
 @RequestMapping("/board")
 public class BoardController {
 
 		@Autowired
 		private BoardService service;
+		
+		@Autowired
+		private SecurityUtils sUtils;
 	
-	
+		// CKEditor 이미지 업로드 부분
+		@ResponseBody
+		@PostMapping("/imgUpload")
+		public Map<String, Object> imgUpload(@RequestParam("upload") MultipartFile img) {
+			String ckImg = service.uploadImg(img);
+			System.out.println("test img : " + ckImg);
+			
+			Map<String, Object> json = new HashMap<String, Object> ();
+			json.put("uploaded", ckImg);
+
+			return json;
+		}
+		
+		
+		// 글쓰기
 		@GetMapping("/write")
 		public void write() {
 			
 		}
 		
-		
-		
-		@ResponseBody
-		@PostMapping("/imgUpload")
-		public Map<String, Object> imgUpload(@RequestParam("upload") MultipartFile img) {
-			
-			System.out.println("img : " + img.getOriginalFilename());
-			//return service.uploadImg(img);
-			
-			String testImg = service.uploadImg(img);
-			
-			System.out.println(testImg);
-			
-			Map<String, Object> json = new HashMap<String, Object> ();
 
-			json.put("uploaded", testImg);
-
-			return json;
+		@PostMapping("/write")
+		public String write(BoardEntity p, HttpSession hs) {
 			
+			// userPk 값 set
+			p.setUserPk(sUtils.getLoginUserPk(hs));
 			
-			
+			service.insBoard(p);
+			return "redirect:/board/detail?boardPk=" + p.getBoardPk();
 		}
 		
 		
 		
-		
-		
+		//리스트
+		@GetMapping("/list")
+		public void list() {
+			
+		}
 		
 		
 		
