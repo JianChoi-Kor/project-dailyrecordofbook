@@ -2,6 +2,15 @@ package com.jian.project1.model;
 
 public class BoardDomain extends BoardEntity{
 	private String writerNm;
+	private String profileImg;
+
+	public String getProfileImg() {
+		return profileImg;
+	}
+
+	public void setProfileImg(String profileImg) {
+		this.profileImg = profileImg;
+	}
 
 	public String getWriterNm() {
 		return writerNm;

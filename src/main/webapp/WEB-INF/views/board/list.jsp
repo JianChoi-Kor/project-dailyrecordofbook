@@ -18,16 +18,12 @@
 	<a href="/board/list?category=2"><input type="button" class="category_btn" value="category 2" ></a>
 </div>
 
-<c:if test="${sessionScope.loginUser != null}">
-	<a href="/board/write?category=${param.category}">
-		<input type="button" class="write_btn" value="글쓰기" >
-	</a>
-</c:if>
+
 
 
 <div class="gallery">
 	<c:forEach items="${requestScope.list}" var="item">
-		<div>
+		<div class="content">
             <a href="#">
                 <h2><img class="listImg" src="/res/img/profile.jpg" alt=""></h2>
                 <h4><c:out value="${pageScope.item.title}"/></h4>
@@ -35,16 +31,16 @@
                 <h5>
                     <div class="profileImg">
 					<c:choose>
-						<c:when test="${sessionScope.loginUser.profileImg == null}">
+						<c:when test="${pageScope.item.profileImg == null}">
 							<c:set var="src" value="profile.jpg"/>
 						</c:when>
 						<c:otherwise>
-							<c:set var="src" value="user/${sessionScope.loginUser.userPk}/${sessionScope.loginUser.profileImg}"/>
+							<c:set var="src" value="user/${pageScope.item.userPk}/${pageScope.item.profileImg}"/>
 						</c:otherwise>	
 					</c:choose>
 						<img src="/res/img/${src}" alt="프로필 이미지">
 					</div>
-                    <p>{sessionScope.loginUser.userNm}</p>
+                    <p>${pageScope.item.writerNm}</p>
                 </h5>
             </a>
         </div>
@@ -53,5 +49,9 @@
 
 
 
-
+<c:if test="${sessionScope.loginUser != null}">
+	<a href="/board/write?category=${param.category}">
+		<input type="button" class="write_btn" value="글쓰기" >
+	</a>
+</c:if>
 

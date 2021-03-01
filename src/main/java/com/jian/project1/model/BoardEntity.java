@@ -12,7 +12,14 @@ public class BoardEntity {
 	private String regDt;
 	private String modDt;
 	private int isDel;
+	private String userNm;
 	
+	public String getUserNm() {
+		return userNm;
+	}
+	public void setUserNm(String userNm) {
+		this.userNm = userNm;
+	}
 	public int getBoardPk() {
 		return boardPk;
 	}
