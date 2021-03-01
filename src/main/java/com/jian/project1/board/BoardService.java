@@ -1,10 +1,13 @@
 package com.jian.project1.board;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.jian.project1.FileUtils;
+import com.jian.project1.model.BoardDomain;
 import com.jian.project1.model.BoardEntity;
 
 @Service
@@ -70,4 +73,8 @@ public class BoardService {
 		return mapper.insBoard(p);
 	}
 	
+	// list 받아오는 기능
+	public List<BoardDomain> selBoardList(BoardEntity p) {
+		return mapper.selBoardList(p);
+	}
 }
