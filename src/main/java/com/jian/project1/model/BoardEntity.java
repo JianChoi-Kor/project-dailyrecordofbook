@@ -6,7 +6,7 @@ public class BoardEntity {
 	private int category;
 	private int seq;
 	private String title;
-	private String ctnt;
+	private String content;
 	private int hits;
 	private int userPk;
 	private String regDt;
@@ -44,11 +44,11 @@ public class BoardEntity {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	public String getCtnt() {
-		return ctnt;
+	public String getContent() {
+		return content;
 	}
-	public void setCtnt(String ctnt) {
-		this.ctnt = ctnt;
+	public void setContent(String content) {
+		this.content = content;
 	}
 	public int getHits() {
 		return hits;

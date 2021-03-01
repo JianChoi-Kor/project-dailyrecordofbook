@@ -27,7 +27,7 @@
             <a href="#">
                 <h2><img class="listImg" src="/res/img/profile.jpg" alt=""></h2>
                 <h4><c:out value="${pageScope.item.title}"/></h4>
-                <p><c:out value="${pageScope.item.ctnt}"/></p>
+                <p><c:out value="${pageScope.item.content}"/></p>
                 <h5>
                     <div class="profileImg">
 					<c:choose>

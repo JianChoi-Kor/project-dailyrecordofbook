@@ -8,15 +8,15 @@
 	
 	<insert id="insBoard" useGeneratedKeys="true" keyProperty="boardPk">
 		INSERT INTO project1_board
-		(category, seq, title, ctnt, userPk)
-		SELECT #{category}, IFNULL(MAX(seq), 0) +1, #{title}, #{ctnt}, #{userPk}
+		(category, seq, title, content, userPk)
+		SELECT #{category}, IFNULL(MAX(seq), 0) +1, #{title}, #{content}, #{userPk}
 		FROM project1_board
 		WHERE category = #{category}
 	</insert>
 
 	<select id="selBoardList" resultType="BoardDomain">
 		SELECT A.boardPk, A.seq, A.title, A.hits, A.regDt
-		, A.userPk, B.userNm AS writerNm, B.profileImg, A.ctnt
+		, A.userPk, B.userNm AS writerNm, B.profileImg, A.content
 		FROM project1_board A
 		INNER JOIN project1_user B
 		ON A.userPk = B.userPk
