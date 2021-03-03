@@ -24,4 +24,10 @@
 		AND A.isDel = 0
 		ORDER BY boardPk DESC;
 	</select>
+	
+	<select id="selBoard" resultType="BoardDomain">
+		SELECT boardPk, title, content
+		FROM project1_board
+		WHERE boardPk = ${boardPk};
+	</select>
 </mapper>

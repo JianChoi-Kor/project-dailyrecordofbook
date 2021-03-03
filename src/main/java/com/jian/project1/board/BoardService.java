@@ -1,6 +1,8 @@
 package com.jian.project1.board;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -49,7 +51,7 @@ public class BoardService {
 	*/
 	
 	// write 내부 이미지 업로드 기능
-	public String uploadImg(MultipartFile img) {
+	public Map<String, Object> uploadImg(MultipartFile img) {
 		
 		System.out.println("img : " + img.getOriginalFilename());
 		String folder = "/res/img/board/ctntImg";
@@ -63,9 +65,15 @@ public class BoardService {
 		}
 		
 		if(ctntImg == null) {
-			return "";
+			return null;
 		}
-		return folder + "/" + "t_" + ctntImg;
+		
+		Map<String, Object> json = new HashMap<String, Object> ();
+		json.put("uploaded", 1);
+		json.put("fileName", ctntImg);
+		json.put("url", folder + "/" + "t_" + ctntImg);
+		
+		return json;
 	}
 	
 	// 글 업로드 기능
@@ -77,4 +85,21 @@ public class BoardService {
 	public List<BoardDomain> selBoardList(BoardEntity p) {
 		return mapper.selBoardList(p);
 	}
+	
+	
+	
+	
+	
+	public BoardDomain selBoard(BoardDomain p) {
+		return mapper.selBoard(p);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

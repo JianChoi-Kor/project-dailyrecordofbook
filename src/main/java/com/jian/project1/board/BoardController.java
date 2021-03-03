@@ -35,13 +35,7 @@ public class BoardController {
 		@ResponseBody
 		@PostMapping("/imgUpload")
 		public Map<String, Object> imgUpload(@RequestParam("upload") MultipartFile img) {
-			String ckImg = service.uploadImg(img);
-			System.out.println("test img : " + ckImg);
-			
-			Map<String, Object> json = new HashMap<String, Object> ();
-			json.put("uploaded", ckImg);
-
-			return json;
+			return service.uploadImg(img);
 		}
 		
 		
@@ -70,8 +64,11 @@ public class BoardController {
 			model.addAttribute(Const.KEY_LIST, service.selBoardList(p));
 		}
 		
-
 		
+		@GetMapping("/detail")
+		public void detail(BoardDomain p, Model model) {
+			model.addAttribute(Const.KEY_DATE, service.selBoard(p));
+		}
 		
 		
 		

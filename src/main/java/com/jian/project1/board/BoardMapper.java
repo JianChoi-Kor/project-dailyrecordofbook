@@ -11,4 +11,5 @@ import com.jian.project1.model.BoardEntity;
 public interface BoardMapper {
 	int insBoard(BoardEntity p);
 	List<BoardDomain> selBoardList(BoardEntity p);
+	BoardDomain selBoard(BoardDomain p);
 }
