@@ -1,6 +1,5 @@
 package com.jian.project1.board;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -18,6 +17,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.jian.project1.Const;
 import com.jian.project1.SecurityUtils;
+import com.jian.project1.model.BoardDTO;
 import com.jian.project1.model.BoardDomain;
 import com.jian.project1.model.BoardEntity;
 
@@ -57,14 +57,23 @@ public class BoardController {
 		}
 		
 		
+		@ResponseBody
+		@GetMapping("/getMaxPageNum")
+		public int selMaxPageNum(BoardDTO p) {
+			return service.selMaxPageNum(p);
+		}
 		
 		//리스트
 		@GetMapping("/list")
-		public void list(BoardEntity p, Model model) {
+		public void list(BoardDTO p, Model model) {
 			model.addAttribute(Const.KEY_LIST, service.selBoardList(p));
+			model.addAttribute(Const.KEY_DATE, service.selMaxPageNum(p));
 		}
 		
 		
+		
+		
+		// 디테일
 		@GetMapping("/detail")
 		public void detail(BoardDomain p, Model model) {
 			model.addAttribute(Const.KEY_DATE, service.selBoard(p));

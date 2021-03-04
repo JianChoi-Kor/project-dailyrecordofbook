@@ -19,6 +19,7 @@
 		<div>
 			<input class="imgBtn" type="file" id="profileImg" accept="image/*">
 			<input class="imgBtn" type="button" value="이미지 업로드" onclick="profileUpload()">
+			<p class="p">* 1:1 비율의 사진을 업로드해 주세요.</p>
 		</div>
 	</div>
 	

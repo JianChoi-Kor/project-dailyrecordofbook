@@ -103,7 +103,7 @@ public class FileUtils {
 
 		if (createThumb) {
 			// saveThumb(file, basePath, 600);
-			makeThumbnail(file, basePath, 600);
+			makeThumbnail(file, basePath, 550);
 		}
 		return fileNm;
 	}

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.jian.project1.FileUtils;
+import com.jian.project1.model.BoardDTO;
 import com.jian.project1.model.BoardDomain;
 import com.jian.project1.model.BoardEntity;
 
@@ -78,11 +79,42 @@ public class BoardService {
 	
 	// 글 업로드 기능
 	public int insBoard(BoardEntity p) {
+		String start = "/res/img/board/";
+		String end = "</figure>";
+		
+		String ctnt = p.getContent();
+		
+		int s = ctnt.indexOf(start);
+		int e = ctnt.indexOf(end) - 2;
+		
+		String boardMainImg = ctnt.substring(s, e);
+		System.out.println(boardMainImg);
+		p.setBoardMainImg(boardMainImg);
+		
+
 		return mapper.insBoard(p);
 	}
 	
+	
+	public int selMaxPageNum(BoardDTO p) {
+		return mapper.selMaxPageNum(p);
+	}
+	
+	public BoardDomain selBoard(BoardDomain p) {
+		return mapper.selBoard(p);
+	}
+	
+	
 	// list 받아오는 기능
-	public List<BoardDomain> selBoardList(BoardEntity p) {
+	public List<BoardDomain> selBoardList(BoardDTO p) {
+		if(p.getPage() == 0) {
+			p.setPage(1);
+		}
+		
+		p.setRowCnt(6);
+		int sIdx = (p.getPage() - 1) * p.getRowCnt();
+		p.setsIdx(sIdx);
+		
 		return mapper.selBoardList(p);
 	}
 	
@@ -90,9 +122,6 @@ public class BoardService {
 	
 	
 	
-	public BoardDomain selBoard(BoardDomain p) {
-		return mapper.selBoard(p);
-	}
 	
 	
 	

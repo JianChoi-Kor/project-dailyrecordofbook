@@ -13,7 +13,14 @@ public class BoardEntity {
 	private String modDt;
 	private int isDel;
 	private String userNm;
+	private String boardMainImg;
 	
+	public String getBoardMainImg() {
+		return boardMainImg;
+	}
+	public void setBoardMainImg(String boardMainImg) {
+		this.boardMainImg = boardMainImg;
+	}
 	public String getUserNm() {
 		return userNm;
 	}
