@@ -1,6 +1,5 @@
 package com.jian.project1.board;
 
-import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
@@ -17,9 +16,9 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.jian.project1.Const;
 import com.jian.project1.SecurityUtils;
-import com.jian.project1.model.BoardDTO;
 import com.jian.project1.model.BoardDomain;
 import com.jian.project1.model.BoardEntity;
+import com.jian.project1.model.BoardPagingVO;
 
 @Controller
 @RequestMapping("/board")
@@ -57,20 +56,6 @@ public class BoardController {
 		}
 		
 		
-		@ResponseBody
-		@GetMapping("/getMaxPageNum")
-		public int selMaxPageNum(BoardDTO p) {
-			return service.selMaxPageNum(p);
-		}
-		
-		//리스트
-		@GetMapping("/list")
-		public void list(BoardDTO p, Model model) {
-			model.addAttribute(Const.KEY_LIST, service.selBoardList(p));
-			model.addAttribute(Const.KEY_DATE, service.selMaxPageNum(p));
-		}
-		
-		
 		
 		
 		// 디테일
@@ -81,16 +66,41 @@ public class BoardController {
 		
 		
 		
+
 		
+		//리스트
+		@GetMapping("/list")
+		public void list(BoardPagingVO vo, Model model) {
+			System.out.println(vo.getCategory());
+			System.out.println(vo.getCurPage());
+			// 카테고리
+			int category = vo.getCategory();
+			// 총 게시글 갯수
+			int totalCountOfItem = service.selTotalCountOfItem(vo);
+			// 한 페이지당 게시글 갯수
+			int itemCountPerPage = 6;
+			// 블럭당 페이지 갯수
+			int pageCountPerBlock = 5;
+			// 현재 페이지
+			int curPage = vo.getCurPage();
+			
+			if(curPage == 0) {
+				curPage = 1;
+			}
+			
+			
+			
+			BoardPagingVO calcVo = new BoardPagingVO(category, totalCountOfItem, curPage, itemCountPerPage, pageCountPerBlock);
+			System.out.println(calcVo.toString());
+			
 		
+			model.addAttribute("paging", calcVo);
+			
+			model.addAttribute(Const.KEY_LIST, service.selBoardList(calcVo));
+		}
+
 		
-		
-		
-		
-		
-		
-		
-		
+	
 		
 		
 		

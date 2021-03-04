@@ -9,9 +9,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.jian.project1.FileUtils;
-import com.jian.project1.model.BoardDTO;
 import com.jian.project1.model.BoardDomain;
 import com.jian.project1.model.BoardEntity;
+import com.jian.project1.model.BoardPagingVO;
 
 @Service
 public class BoardService {
@@ -96,39 +96,28 @@ public class BoardService {
 	}
 	
 	
-	public int selMaxPageNum(BoardDTO p) {
-		return mapper.selMaxPageNum(p);
-	}
+	
 	
 	public BoardDomain selBoard(BoardDomain p) {
 		return mapper.selBoard(p);
 	}
 	
 	
-	// list 받아오는 기능
-	public List<BoardDomain> selBoardList(BoardDTO p) {
-		if(p.getPage() == 0) {
-			p.setPage(1);
-		}
-		
-		p.setRowCnt(6);
-		int sIdx = (p.getPage() - 1) * p.getRowCnt();
-		p.setsIdx(sIdx);
-		
-		return mapper.selBoardList(p);
+	
+	public int selTotalCountOfItem(BoardPagingVO vo) {
+		return mapper.selTotalCountOfItem(vo);
 	}
 	
 	
+	public List<BoardDomain> selBoardList(BoardPagingVO vo) {
+		return mapper.selBoardList(vo);
+	}
 	
+
+
+
 	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	
 	
 }
