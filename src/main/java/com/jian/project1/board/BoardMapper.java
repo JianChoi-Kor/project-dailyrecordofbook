@@ -14,4 +14,5 @@ public interface BoardMapper {
 	BoardDomain selBoard(BoardDomain p);
 	List<BoardDomain> selBoardList(BoardPagingVO vo);
 	int selTotalCountOfItem(BoardPagingVO vo);
+	int updBoard(BoardEntity p);
 }

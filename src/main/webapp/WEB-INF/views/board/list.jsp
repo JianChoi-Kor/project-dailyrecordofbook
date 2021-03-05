@@ -41,7 +41,7 @@
 							<img class="listImg" src="${pageScope.item.boardMainImg}" alt="">
 						</h2>
 					</div>
-					<div>
+					<div class="listContent">
 						<h4 class="listTitle">
 							<c:out value="${pageScope.item.title}" />
 						</h4>

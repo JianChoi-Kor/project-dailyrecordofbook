@@ -55,6 +55,28 @@
 		AND isDel = 0
 	</select>
 
+
+	<update id="updBoard">
+		UPDATE project1_board
+		<set>
+			<if test="title != null and title != ''">
+				title = #{title},
+			</if>
+			<if test="content != null and content !=''">
+				content = #{content},
+			</if>
+			<if test="isDel == 1">
+				isDEl = 1,
+			</if>
+			modDt = now()
+		</set>
+		WHERE boardPk = #{boardPk}
+		<if test="userPk != 0">
+			AND userPk = #{userPk}
+		</if>
+	</update>
+
+
 </mapper>
 
 

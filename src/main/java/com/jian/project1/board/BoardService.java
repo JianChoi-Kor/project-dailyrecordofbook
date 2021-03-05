@@ -113,10 +113,15 @@ public class BoardService {
 		return mapper.selBoardList(vo);
 	}
 	
+	public int delBoard(BoardEntity p) {
+		p.setIsDel(1);
+		return mapper.updBoard(p);
+	}
 
 
-
-	
+	public int updBoard(BoardEntity p) {
+		return mapper.updBoard(p);
+	}
 
 	
 	

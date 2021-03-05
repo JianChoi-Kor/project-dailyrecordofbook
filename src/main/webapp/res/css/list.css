@@ -76,8 +76,12 @@
 	justify-content: center;
 	padding: 19px;
 	width: 300px;
-	height: 300px;
-	margin: 10px auto 100px;
+	height: 440px;
+	margin: 10px auto 5px;
+}
+
+.listContent {
+	width: 280px;
 }
 
 .listImg {
@@ -91,8 +95,9 @@
 }
 
 .listTitle {
-	font-size: 22px;
+	font-size: 19px;
 	margin: 40px 0 12px 8px;
+	word-break: break-all;
 }
 
 .listWriterNm {

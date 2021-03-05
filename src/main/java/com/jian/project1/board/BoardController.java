@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -90,7 +91,36 @@ public class BoardController {
 		}
 
 		
-	
+		// 글 삭제
+		@ResponseBody
+		@DeleteMapping("/del/{boardPk}")
+		public int del(BoardEntity p, HttpSession hs) {
+			p.setUserPk(sUtils.getLoginUserPk(hs));
+			
+			System.out.println("delBoardPk : " + p.getBoardPk());
+			return service.delBoard(p);
+		}
+		
+		
+		// 글 수정
+		@GetMapping("/mod")
+		public String mod(BoardDomain p, Model model) {
+			model.addAttribute(Const.KEY_DATE, service.selBoard(p));
+			return "board/write";
+		}
+		
+		@PostMapping("/mod")
+		public String mod(BoardEntity p, HttpSession hs) {
+			p.setUserPk(sUtils.getLoginUserPk(hs));
+			int result = service.updBoard(p);
+			return "redirect:/board/detail?category=" + p.getCategory() + "&boardPk=" + p.getBoardPk();
+		}
+		
+		
+		
+		
+		
+		
 		
 		
 		
