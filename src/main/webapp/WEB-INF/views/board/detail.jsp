@@ -15,6 +15,10 @@
 				type="button" id="mod_btn" class="detail_btn" value="수정">
 			</a>
 			<input type="button" id="del_btn" class="detail_btn" value="삭제">
+			
+			<c:if test="${sessionScope.loginUser.authStatus == 99 && param.category == 11}">
+				<input type="button" id="close_btn" class="detail_btn" value="모집 마감 변경">
+			</c:if>
 		</c:if>
 	</div>
 

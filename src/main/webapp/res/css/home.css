@@ -82,7 +82,7 @@
 
 /* icon 부분 start */
 .middle {
-    margin: 35px auto;
+    margin: 150px auto 30px;
     max-width: 1040px;
     display: flex;
     justify-content: space-around;

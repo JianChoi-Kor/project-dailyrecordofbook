@@ -60,6 +60,8 @@
 }
 
 
+/* ------------------------------------ */
+
 
 .gallery {
 	background-color: #fff;
@@ -75,19 +77,19 @@
 	float: left;
 	justify-content: center;
 	padding: 19px;
-	width: 300px;
-	height: 430px;
+	width: 480px;
+	height: 610px;
 	margin: 10px auto 5px;
 }
 
 .listContent {
-	width: 280px;
+	width: 450px;
 }
 
 .listImg {
 	display: flex;
 	margin: 0 auto;
-	height: 280px;
+	height: 440px;
 }
 
 .listImg>img {

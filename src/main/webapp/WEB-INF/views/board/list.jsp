@@ -7,10 +7,10 @@
 
 	<c:choose>
 		<c:when test="${param.category == 1}">
-			<h1 class="h1">카테고리 1</h1>
+			<h1 class="h1">책방일지 독서모임은 어떠셨나요?</h1>
 		</c:when>
 		<c:otherwise>
-			<h1 class="h1">카테고리 2</h1>
+			<h1 class="h1">책방일지 공지사항</h1>
 		</c:otherwise>
 
 	</c:choose>

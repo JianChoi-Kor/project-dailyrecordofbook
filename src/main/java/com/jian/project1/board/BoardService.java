@@ -122,7 +122,12 @@ public class BoardService {
 	public int updBoard(BoardEntity p) {
 		return mapper.updBoard(p);
 	}
-
+	
+	
+	public int closeBoard(BoardEntity p) {
+		p.setCategory(12);
+		return mapper.updBoard(p);
+	}
 	
 	
 }

@@ -68,6 +68,9 @@
 			<if test="isDel == 1">
 				isDEl = 1,
 			</if>
+			<if test="category != null and category !=''">
+				category = #{category},
+			</if>
 			modDt = now()
 		</set>
 		WHERE boardPk = #{boardPk}

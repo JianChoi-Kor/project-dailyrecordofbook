@@ -17,7 +17,7 @@
 
         <ul class="navbar_menu">
             <li><a href="/main/home">책방일지는</a></li>
-            <li><a href="/user/login">책방일지 독서 모임</a></li>
+            <li><a href="/board/community?category=11">책방일지 독서 모임</a></li>
             <li><a href="/board/list?category=1">책방일지와 함께하며</a></li>
         </ul>
 

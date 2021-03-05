@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -52,7 +53,7 @@ public class BoardController {
 			p.setUserPk(sUtils.getLoginUserPk(hs));
 			
 			service.insBoard(p);
-			return "redirect:/board/detail?boardPk=" + p.getBoardPk();
+			return "redirect:/board/detail?category=" + p.getCategory() + "&boardPk=" + p.getBoardPk();
 		}
 		
 		
@@ -91,6 +92,35 @@ public class BoardController {
 		}
 
 		
+		// 독서 모임 리스트
+		@GetMapping("/community")
+		public void community(BoardPagingVO vo, Model model) {
+			System.out.println(vo.getCategory());
+			System.out.println(vo.getCurPage());
+			// 카테고리
+			int category = vo.getCategory();
+			// 총 게시글 갯수
+			int totalCountOfItem = service.selTotalCountOfItem(vo);
+			// 한 페이지당 게시글 갯수
+			int itemCountPerPage = 4;
+			// 블럭당 페이지 갯수
+			int pageCountPerBlock = 5;
+			// 현재 페이지
+			int curPage = vo.getCurPage();
+			
+			if(curPage == 0) {
+				curPage = 1;
+			}
+			
+			BoardPagingVO calcVo = new BoardPagingVO(category, totalCountOfItem, curPage, itemCountPerPage, pageCountPerBlock);
+			System.out.println(calcVo.toString());
+		
+			model.addAttribute("paging", calcVo);
+			model.addAttribute(Const.KEY_LIST, service.selBoardList(calcVo));
+		}
+		
+		
+		
 		// 글 삭제
 		@ResponseBody
 		@DeleteMapping("/del/{boardPk}")
@@ -117,6 +147,14 @@ public class BoardController {
 		}
 		
 		
+		// 진행중인 모임 마감으로 변경
+		@ResponseBody
+		@PutMapping("/close/{boardPk}")
+		public int close(BoardEntity p, HttpSession hs) {
+			p.setUserPk(sUtils.getLoginUserPk(hs));
+			return service.closeBoard(p);
+		}
+
 		
 		
 		

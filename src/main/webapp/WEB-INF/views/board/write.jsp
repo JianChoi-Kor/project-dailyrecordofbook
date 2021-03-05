@@ -1,11 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <script src="https://cdn.ckeditor.com/ckeditor5/25.0.0/classic/ckeditor.js"></script>
 
 <div class="write_content">
-	<h1 class="h1">책방일지와 함께하며</h1>
+	<c:if test="${param.category == 1}">
+		<h1 class="h1">책방일지 후기 글쓰기</h1>
+	</c:if>
+	<c:if test="${param.category == 2}">
+		<h1 class="h1">공지사항 글쓰기</h1>
+	</c:if>
+	<c:if test="${param.category == 11}">
+		<h1 class="h1">모집 글쓰기</h1>
+	</c:if>
+	<c:if test="${param.category == 12}">
+		<h1 class="h1">모집 마감 글쓰기</h1>
+	</c:if>
+
 	<form id="write_frm" action="/board/${requestScope.data == null ? 'write' : 'mod' }" method="post" onsubmit="return chk()">
 		<input type="hidden" name="category" value="${param.category}">
 		<input type="hidden" name="boardPk" value="${requestScope.data == null ? '0' : requestScope.data.boardPk}">

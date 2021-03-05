@@ -114,7 +114,7 @@ if(inquiryBtnElem) {
 				return
 			}
 		} else {
-			location.href = '/user/inquiry'
+			location.href = '/main/inquiry'
 			return
 		}
 	}
