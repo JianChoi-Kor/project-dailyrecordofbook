@@ -20,9 +20,9 @@
 
 
 	<select id="selBoard" resultType="BoardDomain">
-		SELECT A.boardPk, A.category,
-		A.title, A.content, A.regDt
-		, A.userPk, B.userNm AS writerNm
+		SELECT A.boardPk, A.category, A.title
+		, A.content, DATE_FORMAT(A.regDt, '%Y년 %m월 %d일 (%H:%i)') as regDt
+		, A.userPk, B.userNm AS writerNm, B.profileImg
 		FROM
 		project1_board A
 		INNER JOIN project1_user B

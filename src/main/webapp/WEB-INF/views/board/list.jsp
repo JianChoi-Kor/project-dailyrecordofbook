@@ -4,7 +4,7 @@
 
 
 <div class="list">
-	
+
 	<c:choose>
 		<c:when test="${param.category == 1}">
 			<h1 class="h1">카테고리 1</h1>
@@ -35,7 +35,7 @@
 	<div class="gallery">
 		<c:forEach items="${requestScope.list}" var="item">
 			<div class="content">
-				<a href="/board/detail?boardPk=${pageScope.item.boardPk}">
+				<a href="/board/detail?category=${param.category}&boardPk=${pageScope.item.boardPk}">
 					<div style="overflow: hidden">
 						<h2>
 							<img class="listImg" src="${pageScope.item.boardMainImg}" alt="">
@@ -74,16 +74,17 @@
 	</c:forEach>
 </div>
  -->
- 
- 
-	<div style="display: block; text-align: center;">		
+
+
+	<!-- 
+	<div class="paging" id="pagingContent">		
 		<c:if test="${requestScope.paging.startPageInCurBlock != 1 }">
 			<a href="/board/list?category=${param.category}&curPage=${requestScope.paging.startPageInCurBlock - 1 }">&lt;</a>
 		</c:if>
-		<c:forEach begin="${requestScope.paging.startPageInCurBlock}" end="${requestScope.paging.endPageInCurBlock > requestScope.paging.lastPage ? requestScope.paging.endPageInCurBlock : requestScope.paging.lastPage}" var="p">
+		<c:forEach begin="${requestScope.paging.startPageInCurBlock}" end="${requestScope.paging.endPageInCurBlock}" var="p">
 			<c:choose>
 				<c:when test="${p == requestScope.paging.curPage}">
-					<b>${p }</b>
+					<span class="span" data-page="${p }">${p }</span>
 				</c:when>
 				<c:when test="${p != requestScope.paging.curPage}">
 					<a href="/board/list?category=${param.category}&curPage=${p }">${p }</a>
@@ -94,7 +95,46 @@
 			<a href="/board/list?category=${param.category}&curPage=${requestScope.paging.endPageInCurBlock + 1 }">&gt;</a>
 		</c:if>
 	</div>
- 
- 
+	 -->
+
+<!-- 
+	<div class="paging" id="pagingContent">
+		<c:if test="${requestScope.paging.startPageInCurBlock != 1 }">
+			<a
+				href="/board/list?category=${param.category}&curPage=${requestScope.paging.startPageInCurBlock - 1 }"><span
+				class="span">&lt;</span></a>
+		</c:if>
+		<c:forEach begin="${requestScope.paging.startPageInCurBlock}"
+			end="${requestScope.paging.endPageInCurBlock}" step="1" var="page">
+			<span class="span" data-page="${page}"><a
+				href="/board/list?category=${param.category}&curPage=${page}">${page}</a></span>
+		</c:forEach>
+		<c:if
+			test="${requestScope.paging.endPageInCurBlock != requestScope.paging.lastPage}">
+			<a
+				href="/board/list?category=${param.category}&curPage=${requestScope.paging.endPageInCurBlock + 1 }"><span
+				class="span">&gt;</span></a>
+		</c:if>
+	</div>
+ -->
+
+	<div class="paging" id="pagingContent">
+		<c:if test="${requestScope.paging.startPageInCurBlock != 1 }">
+			<span class="span"> <a
+				href="/board/list?category=${param.category}&curPage=${requestScope.paging.startPageInCurBlock - 1 }">&lt;</a>
+			</span>
+		</c:if>
+		<c:forEach begin="${requestScope.paging.startPageInCurBlock}"
+			end="${requestScope.paging.endPageInCurBlock}" step="1" var="page">
+			<span class="span" data-page="${page}"><a
+				href="/board/list?category=${param.category}&curPage=${page}">${page}</a></span>
+		</c:forEach>
+		<c:if test="${requestScope.paging.endPageInCurBlock != requestScope.paging.lastPage}">
+			<span class="span"> <a
+				href="/board/list?category=${param.category}&curPage=${requestScope.paging.endPageInCurBlock + 1 }">&gt;</a>
+			</span>
+		</c:if>
+	</div>
+
 
 </div>

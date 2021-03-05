@@ -6,7 +6,7 @@
 window.onload = function() {
 	const pageInfo = new URLSearchParams(location.search)	
 	
-	var pageNum = pageInfo.get('page')
+	var pageNum = pageInfo.get('curPage')
 	console.log(pageNum)
 	
 	

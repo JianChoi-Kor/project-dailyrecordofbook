@@ -64,6 +64,7 @@ public class BoardPagingVO {
 		clacEndPageInCurBlock(getCurPageBlock(), getPageCountPerBlock());
 		calcStartEndPage(getCurPage(),getItemCountPerPage());
 		
+		chkEndPageInCurBlock(getEndPageInCurBlock(), getLastPage());
 	}
 	
 	
@@ -89,9 +90,15 @@ public class BoardPagingVO {
 	
 	public void calcStartEndPage(int curPage, int itemCountPerPage) {
 		setEnd(curPage * itemCountPerPage);
-		setStart(getEnd() - itemCountPerPage + 1);
+		setStart(getEnd() - itemCountPerPage);
 	}
 	
+	
+	public void chkEndPageInCurBlock(int endPageInCurBlock, int lastPage) {
+		if(endPageInCurBlock > lastPage) {
+			setEndPageInCurBlock(lastPage);
+		}
+	}
 	
 	// ------------------------------------------ //
 	

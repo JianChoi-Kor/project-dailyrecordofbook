@@ -130,7 +130,8 @@ h5 p {
 	padding-bottom: 40px;
 }
 
-.paging>span {
+
+.paging>.span {
 	font-size: 20px;
 	padding: 5px;
 }

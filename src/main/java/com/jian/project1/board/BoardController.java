@@ -44,7 +44,6 @@ public class BoardController {
 			
 		}
 		
-
 		@PostMapping("/write")
 		public String write(BoardEntity p, HttpSession hs) {
 			
@@ -56,17 +55,12 @@ public class BoardController {
 		}
 		
 		
-		
-		
 		// 디테일
 		@GetMapping("/detail")
 		public void detail(BoardDomain p, Model model) {
 			model.addAttribute(Const.KEY_DATE, service.selBoard(p));
 		}
 		
-		
-		
-
 		
 		//리스트
 		@GetMapping("/list")
@@ -88,14 +82,10 @@ public class BoardController {
 				curPage = 1;
 			}
 			
-			
-			
 			BoardPagingVO calcVo = new BoardPagingVO(category, totalCountOfItem, curPage, itemCountPerPage, pageCountPerBlock);
 			System.out.println(calcVo.toString());
-			
 		
 			model.addAttribute("paging", calcVo);
-			
 			model.addAttribute(Const.KEY_LIST, service.selBoardList(calcVo));
 		}
 
