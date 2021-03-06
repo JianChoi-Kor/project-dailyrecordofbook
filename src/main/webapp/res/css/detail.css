@@ -53,12 +53,16 @@
 .detail_content {
 	margin-top: 30px;
 	border-top: 1px solid rgba(0, 0, 0, .2);
+	border-bottom: 1px solid rgba(0, 0, 0, .2);
 	width: 760px;
 	background:url('input_bg.jpg') no-repeat;
 	font-size:20px;
 	color:#000;
 }
 
+.cmtWrite {
+	margin-top: 50px;
+}
 
 
 /* ------------------------------------------ */
@@ -120,6 +124,13 @@
 
 
 
+/* ------------------------------------------ */
+
+.cmtImg {
+	width: 50px;
+	height: 50px;
+	border-radius: 50px;
+}
 
 
 

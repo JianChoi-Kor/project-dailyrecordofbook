@@ -60,6 +60,7 @@ public class UserService {
 	// 로그인 메서드
 	public int login(UserEntity p, HttpSession hs) {
 		UserEntity loginUser = mapper.selUser(p);
+		
 		if(loginUser == null) {
 			return 2; // 존재하지 않는 이메일입니다.
 		}

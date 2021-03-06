@@ -6,7 +6,7 @@
 <div class="detail_container">
 	<h1 class="h1">책방일지와 함께하며</h1>
 	<input type="hidden" value="${param.category}">
-	<input type="hidden" id="pageInfo" data-loginuserpk="${sesseionScope.loginUser.userPk}" 
+	<input type="hidden" id="pageInfo" data-loginuserpk="${sessionScope.loginUser.userPk}" 
 		data-boardpk="${param.boardPk}" data-category="${param.category}" data-cmtboardpk="${param.boardPk}">
 	
 	<div class="btn">
@@ -38,7 +38,7 @@
 	
 	<!-- 댓글 쓰기 -->
 	<c:if test="${sessionScope.loginUser != null && param.category == 1}">
-		<div>
+		<div class="cmtWrite">
 			<h4>Comment</h4>
 			<form id="cmtFrm" onsubmit="return false;">
 			<input type="text" name="cmtContent">
