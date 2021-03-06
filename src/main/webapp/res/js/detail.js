@@ -91,3 +91,56 @@ if(close_btnElem) {
 
 
 
+
+// -----------------------  댓글 부분  ------------------------ //
+
+
+
+
+// 댓글 작성 부분
+var cmtFrmElem = document.querySelector('#cmtFrm') 
+
+if(cmtFrmElem) {
+	
+	var cmtContentElem = cmtFrmElem.cmtContent
+	var cmtWriteBtnElem = document.querySelector('#cmtWriteBtn')
+	
+	function ajax() {
+		
+		var cmtContentVal = cmtContentElem.value
+		if(cmtContentVal === '') {
+			alert('댓글 내용을 작성해주세요.')
+			return
+		}
+		
+		var param = {
+			cmtBoardPk: data.dataset.cmtboardpk,
+			cmtContent: cmtContentElem.value
+		}
+		
+		fetch('/cmt', {
+			method: 'post',
+			headers: {
+				'Content-Type':'application/json'
+			},
+			body: JSON.stringify(param)
+		}).then(function(res) {
+			return res.json()
+		}).then(function(result) {
+			if(result === 1) {
+				console.log('성공')
+			}
+			else {
+				alert('댓글 쓰기에 실패했습니다.')
+			}
+		})
+	}
+	
+	cmtWriteBtnElem.addEventListener('click', ajax)
+}
+
+
+
+
+
+

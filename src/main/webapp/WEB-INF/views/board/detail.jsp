@@ -7,7 +7,7 @@
 	<h1 class="h1">책방일지와 함께하며</h1>
 	<input type="hidden" value="${param.category}">
 	<input type="hidden" id="pageInfo" data-loginuserpk="${sesseionScope.loginUser.userPk}" 
-		data-boardpk="${param.boardPk}" data-category="${param.category}">
+		data-boardpk="${param.boardPk}" data-category="${param.category}" data-cmtboardpk="${param.boardPk}">
 	
 	<div class="btn">
 		<c:if test="${sessionScope.loginUser.userPk == requestScope.data.userPk}">
@@ -36,4 +36,28 @@
 		<div class="detail_content">${requestScope.data.content}</div>
 	</div>
 	
+	<!-- 댓글 쓰기 -->
+	<c:if test="${sessionScope.loginUser != null && param.category == 1}">
+		<div>
+			<h4>Comment</h4>
+			<form id="cmtFrm" onsubmit="return false;">
+			<input type="text" name="cmtContent">
+			<input id="cmtWriteBtn" type="button" value="댓글 등록">
+			</form>
+		</div>
+	</c:if>
+	
+	
+	<!-- 댓글 리스트 -->
+	<div id="cmtList"></div>
+
+
 </div>
+
+
+
+
+
+
+
+

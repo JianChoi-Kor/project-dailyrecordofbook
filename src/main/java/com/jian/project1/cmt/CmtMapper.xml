@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.jian.project1.cmt.CmtMapper">
+
+	<insert id="insCmt">
+		INSERT INTO project1_board_cmt
+		(cmtBoardPk, cmtSeq, writerPk, cmtContent)
+		SELECT #{cmtBoardPk}, IFNULL(MAX(cmtSeq), 0) + 1, #{writerPk}, #{cmtContent}
+		FROM project1_board_cmt
+		WHERE cmtBoardPk = #{cmtBoardPk}
+	</insert>
+
+</mapper>  
