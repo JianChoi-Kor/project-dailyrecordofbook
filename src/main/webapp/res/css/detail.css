@@ -61,7 +61,17 @@
 }
 
 .cmtWrite {
-	margin-top: 50px;
+	margin-top: 30px;
+	padding: 10px;
+	width: 760px;
+}
+
+.write_content {
+	width: 760px;
+	min-height: 100px;
+	font-size: 16px;
+	padding: 10px;
+	resize: none;
 }
 
 
@@ -126,12 +136,77 @@
 
 /* ------------------------------------------ */
 
+#cmtList {
+	padding-top: 30px;
+	padding-bottom: 30px;
+	border-bottom: 1px solid rgba(0, 0, 0, .2);
+}
+
 .cmtImg {
 	width: 50px;
 	height: 50px;
 	border-radius: 50px;
 }
 
+.oneCmt {
+	display: flex;
+	padding: 15px;
+}
 
+.cmt_right {
+	padding-left: 17px;
+}
+
+.oneContent {
+	padding-top: 10px;
+	min-height: 56px;
+	height: auto;
+}
+
+
+
+.cmt_btn {
+    background: #ebcacf;
+    color: #fff;
+    border: none;
+    position: relative;
+    height: 26px;
+    font-size: 0.8em;
+    padding: 0.4em 1.2em;
+    cursor: pointer;
+    transition: 800ms ease all;
+    outline: none;
+    text-align: right;
+    border-radius: 0.5em;
+}
+
+
+.cmt_btn:hover {
+    background: #fff;
+    color:#ebcacf;
+}
+
+.cmt_btn:before, .cmt_btn:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 2px;
+    width: 0;
+    background: #ebcacf;
+    transition: 400ms ease all;
+}
+
+.cmt_btn:after {
+    right: inherit;
+    top: inherit;
+    left: 0;
+    bottom: 0;
+}
+
+.cmt_btn:hover:before, .cmt_btn:hover:after {
+    width: 100%;
+    transition: 800ms ease all;
+}
 
 

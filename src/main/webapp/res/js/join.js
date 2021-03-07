@@ -111,7 +111,7 @@ if (joinBtnElem) {
 	function proc(result) {
 		switch (result) {
 			case 1:
-				alert('회원가입에 성공했습니다.')
+				alert('회원가입에 성공했습니다. 이메일 인증을 진행해주세요.')
 				location.href = '/user/login'
 				return
 

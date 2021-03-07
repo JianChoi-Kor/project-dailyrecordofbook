@@ -17,9 +17,9 @@
 
 	<div class="category">
 		<a href="/board/list?category=1"><input type="button"
-			class="category_btn" value="category 1"></a> &nbsp&nbsp&nbsp&nbsp
+			class="category_btn" value="책방일지 모임 후기"></a> &nbsp&nbsp&nbsp&nbsp
 		<a href="/board/list?category=2"><input type="button"
-			class="category_btn" value="category 2"></a>
+			class="category_btn" value="공지사항"></a>
 	</div>
 
 

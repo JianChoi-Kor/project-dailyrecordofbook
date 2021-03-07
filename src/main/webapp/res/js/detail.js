@@ -129,6 +129,7 @@ if (cmtFrmElem) {
 		}).then(function(result) {
 			if (result === 1) {
 				console.log('성공')
+				cmtContentElem.value = ''
 				selCmtList()
 			}
 			else {
@@ -181,19 +182,20 @@ function selCmtList() {
 		
 		var html = ''
 
-		html += "<div>"
+		html += '<div class="oneCmt">'
 		html += 	"<div>"
 		html += 		'<img class="cmtImg" src="/res/img/user/'+item.writerPk+'/'+item.writerProfileImg+'"'
 		html += 		">"
 		html += 	"</div>"
 
-		html += 	"<div>"
+		html += 	'<div class="cmt_right">'
 		html += 		"<div>"
 		html +=				"<span>"+item.writerNm+"</span>"
+		html +=				"&nbsp&nbsp"
 		html +=				"<span>"+item.cmtRegDt+"</span>"
 		html +=			"</div>"
 		html +=			"<div>"
-		html +=				"<p>"+item.cmtContent+"</p>"
+		html +=				'<p class="oneContent">'+item.cmtContent+'</p>'
 		html += 		"</div>"
 		
 		
@@ -204,8 +206,9 @@ function selCmtList() {
 		if(loginUserPk === item.writerPk) {
 	
 					html +=			"<div>"
-					html +=				'<input type="button" value="수정">'
-					html +=				'<input type="button" value="삭제">'
+					html +=				'<input type="button" class="cmt_btn cmt_btn1" value="수정">'
+					html +=				"&nbsp"
+					html +=				'<input type="button" class="cmt_btn" value="삭제">'
 					html +=			"</div>"
 		}
 		

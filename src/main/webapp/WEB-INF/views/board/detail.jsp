@@ -36,20 +36,27 @@
 		<div class="detail_content">${requestScope.data.content}</div>
 	</div>
 	
+	
+	<!-- 댓글 리스트 -->
+	<div id="cmtList"></div>
+	
+	
 	<!-- 댓글 쓰기 -->
 	<c:if test="${sessionScope.loginUser != null && param.category == 1}">
 		<div class="cmtWrite">
-			<h4>Comment</h4>
 			<form id="cmtFrm" onsubmit="return false;">
-			<input type="text" name="cmtContent">
-			<input id="cmtWriteBtn" type="button" value="댓글 등록">
+			<div>
+				<textarea name="cmtContent" id="cmtContent" class="write_content" placeholder="로그인이 필요합니다."></textarea>
+			</div>
+			<div>
+				<input id="cmtWriteBtn" class="cmt_btn" type="button" value="댓글 등록">
+			</div>
 			</form>
 		</div>
 	</c:if>
 	
 	
-	<!-- 댓글 리스트 -->
-	<div id="cmtList"></div>
+	
 
 
 </div>
