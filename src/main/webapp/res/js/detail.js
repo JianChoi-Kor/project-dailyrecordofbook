@@ -144,6 +144,7 @@ if (cmtFrmElem) {
 
 
 
+
 // 댓글 리스트 출력 부분
 var cmtListElem = document.querySelector('#cmtList')
 
@@ -179,10 +180,24 @@ function selCmtList() {
 	// 댓글 하나씩 만드는 함수
 	function createRecord(item) {
 		
+		if(item.cmtIsDel == 1) {
+			item.cmtContent = '삭제된 댓글입니다.'
+		}
 		
 		var html = ''
+		
+		//
+		html += '<div class="oneMod hidden" id="oneMod'+item.cmtSeq+'">'
+		html +=	addUpdFrm(item) 
+		html += '</div>'
 
-		html += '<div class="oneCmt">'
+
+
+
+
+
+
+		html += '<div class="oneCmt" id="oneCmt'+item.cmtSeq+'">'
 		html += 	"<div>"
 		html += 		'<img class="cmtImg" src="/res/img/user/'+item.writerPk+'/'+item.writerProfileImg+'"'
 		html += 		">"
@@ -203,12 +218,12 @@ function selCmtList() {
 		// 자신이 쓴 댓글이라면 삭제, 수정버튼 추가
 		var loginUserPk = parseInt(pageInfo.dataset.loginuserpk)
 		console.log(loginUserPk)
-		if(loginUserPk === item.writerPk) {
+		if(loginUserPk === item.writerPk && item.cmtIsDel !== 1) {
 	
 					html +=			"<div>"
-					html +=				'<input type="button" class="cmt_btn cmt_btn1" value="수정">'
+					html +=				'<input type="button" class="cmt_btn" id="mod_btn'+item.cmtSeq+'" value="수정" onclick="makeModFrm('+item.cmtSeq+')">'
 					html +=				"&nbsp"
-					html +=				'<input type="button" class="cmt_btn" value="삭제">'
+					html +=				'<input type="button" class="cmt_btn" id="del_btn'+item.cmtSeq+'" value="삭제" onclick="delAjax('+item.cmtBoardPk+', '+item.cmtSeq+')">'                      
 					html +=			"</div>"
 		}
 		
@@ -219,6 +234,128 @@ function selCmtList() {
 	
 	}
 
+
+
 }
 
 selCmtList()
+
+
+
+	// 댓글 수정 창을 띄우는 부분
+	function makeModFrm(cmtSeq) {
+		
+		var cmtUpdId1 = 'oneMod' + cmtSeq
+		console.log(cmtUpdId1)
+		var newUpdFrm = document.getElementById(`${cmtUpdId1}`)
+		newUpdFrm.classList.remove('hidden')
+		
+		
+		var cmtUpdId2 = 'oneCmt' + cmtSeq
+		console.log(cmtUpdId2)
+		var oriUpdFrm = document.getElementById(`${cmtUpdId2}`)
+		oriUpdFrm.classList.add('hidden')
+
+	}
+	
+	
+	// 댓글 수정 취소 부분
+	function canModFrm(cmtSeq) {
+		
+		var cmtUpdId1 = 'oneMod' + cmtSeq
+		console.log(cmtUpdId1)
+		var newUpdFrm = document.getElementById(`${cmtUpdId1}`)
+		newUpdFrm.classList.add('hidden')
+		
+		
+		var cmtUpdId2 = 'oneCmt' + cmtSeq
+		console.log(cmtUpdId2)
+		var oriUpdFrm = document.getElementById(`${cmtUpdId2}`)
+		oriUpdFrm.classList.remove('hidden')
+
+	}
+	
+	
+	
+
+
+// 새로 열리는 댓글 수정 Form
+function addUpdFrm(item) {
+	var addHtml = ''
+	
+	addHtml += 	"<div>"
+	addHtml += 		'<img class="cmtImg" src="/res/img/user/'+item.writerPk+'/'+item.writerProfileImg+'"'
+	addHtml += 		">"
+	addHtml += 	"</div>"
+
+	addHtml += 	'<div class="cmt_right">'
+	addHtml += 		"<div>"
+	addHtml +=				"<span>"+item.writerNm+"</span>"
+	addHtml +=				"&nbsp&nbsp"
+	addHtml +=				"<span>"+item.cmtRegDt+"</span>"
+	addHtml +=			"</div>"
+	addHtml +=			"<div>"
+	addHtml +=				'<textarea name="newCmtContent" id="new_cmt_content'+item.cmtSeq+'" class="modWrite_content">'+item.cmtContent+'</textarea>'
+	addHtml += 		"</div>"
+	
+	addHtml +=			"<div>"
+	addHtml +=				'<input type="button" class="cmt_btn" id="mod_btn'+item.cmtSeq+'" value="수정" onclick="modAjax('+item.cmtBoardPk+', '+item.cmtSeq+')">'
+	addHtml +=				"&nbsp"
+	addHtml +=				'<input type="button" class="cmt_btn" id="del_btn'+item.cmtSeq+'" value="취소" onclick="canModFrm('+item.cmtSeq+')">'
+	addHtml +=			"</div>"
+	addHtml +=		"</div>"
+	
+	return addHtml
+}
+
+
+
+
+// 댓글 삭제 부분
+function delAjax(cmtBoardPk, cmtSeq) {
+	if(confirm('삭제하시겠습니까?')) {
+		fetch(`/cmt?cmtBoardPk=${cmtBoardPk}&cmtSeq=${cmtSeq}`, {
+			method: 'delete'
+		}).then(res => res.json())
+		.then(result => {
+			if(result === 1) {
+				selCmtList()
+			} else {
+				alert('삭제 실패')
+			}
+		})
+	}
+} 
+
+
+// 댓글 수정 부분
+function modAjax(cmtBoardPk, cmtSeq) {
+	
+	var newCmtContentId = 'new_cmt_content' + cmtSeq
+	var newCmtContentElem = document.getElementById(`${newCmtContentId}`)
+	
+	var param = {
+		cmtBoardPk: cmtBoardPk,
+		cmtSeq: cmtSeq,
+		cmtContent: newCmtContentElem.value
+	}
+	
+	fetch('/cmt', {
+		method: 'put',
+		headers: {
+			'Content-Type': 'application/json'
+		},
+		body: JSON.stringify(param)
+	}).then(res => res.json())
+	.then(result => {
+		if(result === 1) {
+			selCmtList()
+		} else {
+			alert('수정 실패')
+		}
+	})
+	
+}
+
+
+

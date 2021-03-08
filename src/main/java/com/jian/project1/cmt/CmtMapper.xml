@@ -21,8 +21,26 @@
 	LEFT JOIN project1_user B
 	ON A.writerPk = B.userPk
 	WHERE A.cmtBoardPk = #{cmtBoardPk}
-	AND A.cmtIsDel = 0
 	ORDER BY A.cmtSeq
 	</select>
+	
+	
+	<update id="updCmt">
+		UPDATE project1_board_cmt
+		<set>
+			<if test="cmtContent != null and cmtContent != ''">
+				cmtContent = #{cmtContent},
+			</if>
+			<if test="cmtIsDel == 1">
+				cmtIsDel = 1,
+			</if>
+			cmtModDt = now()
+		</set>
+		WHERE cmtBoardPk = #{cmtBoardPk}
+		AND cmtSeq = #{cmtSeq}
+		AND writerPk = #{writerPk}
+	</update>
+	
+	
 
 </mapper>  

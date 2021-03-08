@@ -46,12 +46,17 @@
 		<div class="cmtWrite">
 			<form id="cmtFrm" onsubmit="return false;">
 			<div>
-				<textarea name="cmtContent" id="cmtContent" class="write_content" placeholder="로그인이 필요합니다."></textarea>
+				<textarea name="cmtContent" id="cmtContent" class="write_content" placeholder="댓글 내용을 작성해주세요."></textarea>
 			</div>
 			<div>
 				<input id="cmtWriteBtn" class="cmt_btn" type="button" value="댓글 등록">
 			</div>
 			</form>
+		</div>
+	</c:if>
+	<c:if test="${sessionScope.loginUser == null}">
+		<div class="cmtWrite">
+			<h4>댓글 작성에는 로그인이 필요합니다.</h4>
 		</div>
 	</c:if>
 	

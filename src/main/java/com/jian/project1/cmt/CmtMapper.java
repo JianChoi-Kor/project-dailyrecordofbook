@@ -12,6 +12,6 @@ public interface CmtMapper {
 	
 	int insCmt(CmtEntity p);
 	List<CmtDomain> selCmtList(CmtEntity p);
-	
+	int updCmt(CmtEntity p);
 
 }

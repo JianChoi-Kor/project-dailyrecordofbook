@@ -74,6 +74,14 @@
 	resize: none;
 }
 
+.modWrite_content {
+	width: 670px;
+	min-height: 100px;
+	font-size: 16px;
+	padding: 10px;
+	resize: none;
+}
+
 
 /* ------------------------------------------ */
 
@@ -153,6 +161,11 @@
 	padding: 15px;
 }
 
+.oneMod {
+	display: flex;
+	padding: 15px;
+}
+
 .cmt_right {
 	padding-left: 17px;
 }
@@ -208,5 +221,16 @@
     width: 100%;
     transition: 800ms ease all;
 }
+
+
+/* --------------------------------- */
+
+
+.hidden {
+	display: none;
+}
+
+
+
 
 
