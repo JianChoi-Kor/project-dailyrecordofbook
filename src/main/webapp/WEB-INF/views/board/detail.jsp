@@ -41,28 +41,20 @@
 	<div id="cmtList"></div>
 	
 	
+	
 	<!-- 댓글 쓰기 -->
-	<c:if test="${sessionScope.loginUser != null && param.category == 1}">
-		<div class="cmtWrite">
-			<form id="cmtFrm" onsubmit="return false;">
+	<c:if test="${param.category == 1 || param.category == 2}">
+	<div class="cmtWrite" onclick="chkLogin(${sessionScope.loginUser.userPk})">
+		<form id="cmtFrm" onsubmit="return false;">
 			<div>
 				<textarea name="cmtContent" id="cmtContent" class="write_content" placeholder="댓글 내용을 작성해주세요."></textarea>
 			</div>
 			<div>
 				<input id="cmtWriteBtn" class="cmt_btn" type="button" value="댓글 등록">
 			</div>
-			</form>
-		</div>
+		</form>
+	</div>
 	</c:if>
-	<c:if test="${sessionScope.loginUser == null}">
-		<div class="cmtWrite">
-			<h4>댓글 작성에는 로그인이 필요합니다.</h4>
-		</div>
-	</c:if>
-	
-	
-	
-
 
 </div>
 

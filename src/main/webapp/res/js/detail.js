@@ -91,6 +91,39 @@ if (close_btnElem) {
 
 
 
+function chkLogin(loginUserPk) {
+	
+	if(loginUserPk == '' || loginUserPk == null) {
+		
+		if(confirm('로그인이 필요한 서비스입니다. 로그인 하시겠습니까?')) {
+			location.href = '/user/login'
+			return
+		}
+
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // -----------------------  댓글 부분  ------------------------ //
 
