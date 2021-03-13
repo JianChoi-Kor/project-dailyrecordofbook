@@ -10,7 +10,7 @@ import com.jian.project1.model.UserEntity;
 @Component
 public class SecurityUtils {
 	
-	// salt 생성 메서
+	// salt 생성 메서드
 	public String getSalt() {
 		return BCrypt.gensalt();
 	}
