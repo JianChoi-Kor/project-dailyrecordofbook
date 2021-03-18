@@ -3,7 +3,8 @@ const slideContainer = document.querySelector('.top-slide-container')
 const slide = document.querySelector('.slides')
 const nextBtn = document.querySelector('#next-btn')
 const prevBtn = document.querySelector('#prev-btn')
-const interval = 5000
+const interval = 10000
+
 
 let slides = document.querySelectorAll('.slide')
 let index = 1
@@ -19,7 +20,7 @@ slide.append(firstClone)
 slide.prepend(lastClone)
 
 
-const slideWidth = slides[index].clientWidth
+var slideWidth = slides[index].clientWidth
 
 function resetSlideWidth() {
 	slideWidth = slides[index].clientWidth
@@ -57,14 +58,14 @@ const moveToNextSlide = () => {
     if(index >= slides.length -1) return
     index++
     slide.style.transform = `translateX(${-slideWidth * index}px)`
-    slide.style.transition = '3.3s'
+    slide.style.transition = '3.8s'
 }
 
 const moveToPreviousSlide = () => {
     if(index <= 0) return
     index--
     slide.style.transform = `translateX(${-slideWidth * index}px)`
-    slide.style.transition = '3.3s'
+    slide.style.transition = '3.8s'
 }
 
 slideContainer.addEventListener('mouseenter', () => {

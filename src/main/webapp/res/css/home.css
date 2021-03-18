@@ -221,7 +221,64 @@
 
 
 
+/* book slide 부분 start */
+/*
+.book-slide-container {
+    width: 280px;
+    height:215px;
+    position: relative;
+}
 
+.book-slides {
+    display: flex;
+    height: 100%;
+}
+
+.book-slide {
+    min-width: 100%;
+    position: relative;
+}
+
+.book-slide img {
+    width: 100%;
+    height: 100%;
+}
+
+.book-slide-controls {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#book-next-btn, #book-prev-btn {
+    display: none;
+}
+
+#book-next-btn:focus, #book-prev-btn:focus {
+    outline: none;
+}
+*/
+/* book slide 부분 end */
+
+.bookSlide {
+	width: 100%;
+}
+
+.book-slide-container {
+	position:relative;
+	height: 225px; 
+	overflow: hidden;
+}
+
+.book-slide-container img {
+	height: 215px; 
+	position: absolute;
+}
 
 
 
