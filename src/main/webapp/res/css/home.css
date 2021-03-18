@@ -83,7 +83,7 @@
 
 /* icon 부분 start */
 .middle {
-    margin: 150px auto 30px;
+    margin: 100px auto 30px;
     max-width: 1040px;
     display: flex;
     justify-content: space-around;
@@ -280,6 +280,58 @@
 	position: absolute;
 }
 
+
+
+
+/* write btn */
+
+.book-slide-btn {
+	width: 600px;
+	margin: 10px auto;
+}
+
+#add_btn {
+    background: #ebcacf;
+    color: #fff;
+    border: none;
+    position: relative;
+    height: 30px;
+    font-size: 1em;
+    padding: 0.4em 1.2em;
+    cursor: pointer;
+    transition: 800ms ease all;
+    outline: none;
+    text-align: right;
+    border-radius: 0.5em;
+}
+
+#add_btn:hover {
+    background: #fff;
+    color:#ebcacf;
+}
+
+#add_btn:before, #add_btn:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 2px;
+    width: 0;
+    background: #ebcacf;
+    transition: 400ms ease all;
+}
+
+#add_btn:after {
+    right: inherit;
+    top: inherit;
+    left: 0;
+    bottom: 0;
+}
+
+#add_btn:hover:before, #add_btn:hover:after {
+    width: 100%;
+    transition: 800ms ease all;
+}
 
 
 

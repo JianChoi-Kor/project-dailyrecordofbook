@@ -2,6 +2,8 @@
  * 
  */
 
+
+
 ClassicEditor.create(document.querySelector('#editor'), {
 		ckfinder : {
 			uploadUrl : 'http://localhost:8080/board/imgUpload'
@@ -15,5 +17,5 @@ ClassicEditor.create(document.querySelector('#editor'), {
 	
 	
 	
-//
+
 

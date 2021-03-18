@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.jian.project1.main.MainMapper">
+
+	<insert id="addBook">
+		INSERT INTO project1_book_slide
+		(bookTitle, communityInfo, bookImg)
+		VALUES
+		(#{bookTitle}, #{communityInfo}, #{bookImg})
+	</insert>
+
+	<select id="selBookList" resultType="BookSlideEntity">
+		SELECT * FROM project1_book_slide
+		ORDER BY bookPk DESC;
+	</select>
+
+
+</mapper>

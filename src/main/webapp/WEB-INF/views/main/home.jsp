@@ -31,6 +31,12 @@
 
 
 
+<div class="middle-etc">
+	<h2>'책방일지'를 통해</h2>
+	<h4>&nbsp</h4> 
+	<h3>책과의 거리는 더 가깝게 세상과 사람을 따뜻하게 이해하길 바라는 마음으로</h3>
+	<h3>다양한 독서경험을 위한 활동을 하고 있습니다.</h3>
+</div>
 
 <!-- 아이콘 부분 -->
 <div class="middle">
@@ -96,23 +102,16 @@
  -->
 <div class="bookSlide">
 	<div class="book-slide-container">
-		<img src="/res/img/11.jpg" alt="">
-		<img src="/res/img/22.jpg" alt="">
-		<img src="/res/img/33.jpg" alt="">
-		<img src="/res/img/44.jpg" alt="">
-		<img src="/res/img/55.jpg" alt="">
-		<img src="/res/img/11.jpg" alt="">
-		<img src="/res/img/22.jpg" alt="">
-		<img src="/res/img/33.jpg" alt="">
-		<img src="/res/img/44.jpg" alt="">
-		<img src="/res/img/55.jpg" alt="">
+	<c:forEach items="${requestScope.list}" var="item">
+		<img src="${pageScope.item.bookImg}" alt="">
+	</c:forEach>	
 	</div>
 </div>
 
 <div class="book-slide-btn">
 	<c:if test="${sessionScope.loginUser.authStatus == 99}">
-		<a href="#"> 
-			<input type="button" id="add_btn" class="add_btn" value="책 추가">
+		<a href="/main/addBook"> 
+			<input type="button" id="add_btn" class="add_btn" value="슬라이드 책 추가">
 		</a>
 	</c:if>
 </div>

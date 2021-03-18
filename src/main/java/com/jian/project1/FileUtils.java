@@ -89,6 +89,7 @@ public class FileUtils {
 	public String transferTo(MultipartFile mf, boolean createThumb, String... target) throws Exception {
 		String fileNm = null;
 		String basePath = getBasePath(target);
+		System.out.println("basePath : "+basePath);
 		makeFolders(basePath);
 		File file;
 

@@ -84,13 +84,17 @@ public class BoardService {
 		
 		String ctnt = p.getContent();
 		
-		int s = ctnt.indexOf(start);
-		int e = ctnt.indexOf(end) - 2;
 		
-		String boardMainImg = ctnt.substring(s, e);
-		System.out.println(boardMainImg);
-		p.setBoardMainImg(boardMainImg);
+		int check = ctnt.indexOf(start);
 		
+		if(check != -1) {
+			int s = ctnt.indexOf(start);
+			int e = ctnt.indexOf(end) - 2;
+			
+			String boardMainImg = ctnt.substring(s, e);
+			System.out.println(boardMainImg);
+			p.setBoardMainImg(boardMainImg);
+		}
 
 		return mapper.insBoard(p);
 	}
