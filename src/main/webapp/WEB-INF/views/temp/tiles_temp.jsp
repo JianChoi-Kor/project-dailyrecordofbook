@@ -20,6 +20,8 @@
 <link rel="stylesheet" href="<tiles:getAsString name="categoryCss"/>">
 <script defer src="<tiles:getAsString name="categoryJs"/>"></script>
 
+
+
 </head>
 <body>
 	<!-- header -->

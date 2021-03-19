@@ -2,6 +2,8 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
+
+
 <!-- 상단 슬라이드 부분 -->
 <!-- media 바뀌는 기준으로 일반 슬라이드 변경 필요 -->
 <div class="top-slide-container">
@@ -129,6 +131,10 @@
 	</c:if>
 </div>
 
+
+
+
+
 <!-- 문의 버튼 -->
 <div class="inquiry">
 	<input id="chkUser" type="hidden"
@@ -136,11 +142,12 @@
 		id="inquiryBtn" class="inquiry_btn" value="문의하기">
 </div>
 
-<!-- 
-<script src="/res/js/mainBookSlide.js"></script>
- -->
+
+
+
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="/res/js/bookSlide.js"></script>
+<script src="/res/js/toastCalendar.js"></script>
 
 
 <script src="https://kit.fontawesome.com/f094e80764.js"
