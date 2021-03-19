@@ -103,9 +103,22 @@
 <div class="bookSlide">
 	<div class="book-slide-container">
 	<c:forEach items="${requestScope.list}" var="item">
-		<img src="${pageScope.item.bookImg}" alt="">
-	</c:forEach>	
+		<div id="bookData${pageScope.item.bookPk}" 
+			data-booktitle="${pageScope.item.bookTitle}" 
+			data-communityinfo="${pageScope.item.communityInfo}"
+			data-bookimg="${pageScope.item.bookImg}">
+		</div>
+		<img src="${pageScope.item.bookImg}" alt="" onclick="openModal(${pageScope.item.bookPk})" >
+			
+	</c:forEach>
 	</div>
+</div>
+
+<div id="bookModal" class="hide">
+	<h1 id="modClose">X</h1>
+	<input type="image" src="" id="modBookImg">
+	<input type="text" class="modText" id="modBookTitle" readonly>
+	<input type="text" class="modText" id="modCommunityInfo" readonly>
 </div>
 
 <div class="book-slide-btn">

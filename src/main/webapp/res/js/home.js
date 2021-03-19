@@ -126,6 +126,3 @@ if(inquiryBtnElem) {
 
 
 
-
-
-

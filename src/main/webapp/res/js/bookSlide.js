@@ -42,5 +42,49 @@ window.onload = function() {
 		//깔끔하게 변경가능하다           
 
 	}
-
 };
+
+
+
+
+const bookModalElem = document.querySelector('#bookModal')
+
+const modBookImgElem = bookModalElem.querySelector('#modBookImg')
+const modBookTitleElem = bookModalElem.querySelector('#modBookTitle')
+const modCommunityInfoElem = bookModalElem.querySelector('#modCommunityInfo')
+
+function openModal(bookPk) {
+	
+	console.log(`bookData${bookPk}`)
+	var data = document.querySelector(`#bookData${bookPk}`)
+
+	var {booktitle, communityinfo, bookimg} = data.dataset
+	
+	modBookImgElem.src = bookimg
+	modBookTitleElem.value = booktitle
+	modCommunityInfoElem.value = communityinfo
+
+	bookModalElem.classList.remove('hide')
+
+}
+
+
+
+//	모달 닫기 버튼
+var modalCloseElem = document.querySelector('#modClose')
+
+modalCloseElem.addEventListener('click', function() {
+	bookModalElem.classList.add('hide')
+})
+
+
+
+
+
+
+
+
+
+
+
+
