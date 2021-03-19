@@ -118,7 +118,7 @@
 	<h1 id="modClose">X</h1>
 	<input type="image" src="" id="modBookImg">
 	<input type="text" class="modText" id="modBookTitle" readonly>
-	<input type="text" class="modText" id="modCommunityInfo" readonly>
+	<input type="text" class="modText modInfo" id="modCommunityInfo" readonly>
 </div>
 
 <div class="book-slide-btn">
