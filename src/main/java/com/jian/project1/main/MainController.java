@@ -42,7 +42,7 @@ public class MainController {
 		return "redirect:/main/home";
 	}
 	
-	
+
 	
 	
 }

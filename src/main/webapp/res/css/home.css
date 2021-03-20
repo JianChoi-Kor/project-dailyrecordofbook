@@ -384,4 +384,17 @@
 }
 
 
+.calendar-title {
+	margin: 60px auto;
+	text-align: center;
+}
 
+.calendar-title>p {
+	font-size: 25px;
+	font-weight: bold;
+}
+
+#calendar{
+   width:800px;
+   margin:90px auto;
+}

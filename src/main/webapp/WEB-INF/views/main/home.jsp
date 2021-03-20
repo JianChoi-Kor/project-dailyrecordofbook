@@ -3,6 +3,9 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 
+<link href="/res/fullcalendar-5.5.1/lib/main.css" rel='stylesheet' />
+<script src="/res/fullcalendar-5.5.1/lib/main.js"></script>
+
 
 <!-- 상단 슬라이드 부분 -->
 <!-- media 바뀌는 기준으로 일반 슬라이드 변경 필요 -->
@@ -133,8 +136,6 @@
 
 
 
-
-
 <!-- 문의 버튼 -->
 <div class="inquiry">
 	<input id="chkUser" type="hidden"
@@ -143,11 +144,17 @@
 </div>
 
 
+<!-- 구글 캘린더 연동 -->
+<div class="calendar-title">
+	<p> < 책방일지는 지금 > </p>
+</div>
+<div id='calendar'></div>
+
 
 
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="/res/js/bookSlide.js"></script>
-<script src="/res/js/toastCalendar.js"></script>
+<script src="/res/js/calendar.js"></script>
 
 
 <script src="https://kit.fontawesome.com/f094e80764.js"
