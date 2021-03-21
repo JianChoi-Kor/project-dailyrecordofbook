@@ -125,6 +125,8 @@ function chkLogin(loginUserPk) {
 
 
 
+
+
 // -----------------------  댓글 부분  ------------------------ //
 
 
@@ -225,10 +227,42 @@ function selCmtList() {
 		html += '</div>'
 
 
+		// 자신이 쓴 댓글 확인 및 좋아요 확인하기 위한 userPk 변수
+		var loginUserPk = parseInt(pageInfo.dataset.loginuserpk)
+
+
+
+		html += '<div class="oneCmt" id="oneCmt'+item.cmtSeq+'">'
+		html += 	"<div>"
+		html += 		'<img class="cmtImg" src="/res/img/user/'+item.writerPk+'/'+item.writerProfileImg+'"'
+		html += 		">"
+		html += 	"</div>"
+
+		html += 	'<div class="cmt_right">'
+		html += 		'<div class="cmt_top_line">'
+		html +=				"<span>"+item.writerNm+"</span>"
+		html +=				"&nbsp&nbsp"
+		html +=				'<span>'+item.cmtRegDt+'&nbsp&nbsp&nbsp&nbsp&nbsp</span>'
+		html +=				'<div class="likeForm">'
+		html +=					'<i class="fas fa-heart heart-icon" id="heart-icon'+item.cmtSeq+'" onclick="liked('+item.cmtSeq+', '+loginUserPk+')"></i>'
+		html +=					'<span class="liked-span" id="liked-span'+item.cmtSeq+'">liked!</span>'
+		html +=				"</div>"
+		html +=			"</div>"
+	
+		html +=			"<div>"
+		html +=				'<p class="oneContent">'+item.cmtContent+'</p>'
+		html += 		"</div>"
 
 
 
 
+
+
+
+
+
+
+		/*
 
 		html += '<div class="oneCmt" id="oneCmt'+item.cmtSeq+'">'
 		html += 	"<div>"
@@ -246,10 +280,9 @@ function selCmtList() {
 		html +=				'<p class="oneContent">'+item.cmtContent+'</p>'
 		html += 		"</div>"
 		
-		
+		*/
 		
 		// 자신이 쓴 댓글이라면 삭제, 수정버튼 추가
-		var loginUserPk = parseInt(pageInfo.dataset.loginuserpk)
 		console.log(loginUserPk)
 		if(loginUserPk === item.writerPk && item.cmtIsDel !== 1) {
 	

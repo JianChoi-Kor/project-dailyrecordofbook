@@ -222,6 +222,10 @@
     transition: 800ms ease all;
 }
 
+.cmt_top_line {
+	display: flex;
+}
+
 
 /* --------------------------------- */
 
@@ -229,7 +233,6 @@
 .hidden {
 	display: none;
 }
-
 
 
 

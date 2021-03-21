@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Mapper;
 import com.jian.project1.model.BoardDomain;
 import com.jian.project1.model.BoardEntity;
 import com.jian.project1.model.BoardPagingVO;
+import com.jian.project1.model.LikeEntity;
 
 @Mapper
 public interface BoardMapper {
@@ -15,4 +16,7 @@ public interface BoardMapper {
 	List<BoardDomain> selBoardList(BoardPagingVO vo);
 	int selTotalCountOfItem(BoardPagingVO vo);
 	int updBoard(BoardEntity p);
+	
+	
+
 }

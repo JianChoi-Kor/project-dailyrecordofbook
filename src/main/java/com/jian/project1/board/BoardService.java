@@ -12,6 +12,7 @@ import com.jian.project1.FileUtils;
 import com.jian.project1.model.BoardDomain;
 import com.jian.project1.model.BoardEntity;
 import com.jian.project1.model.BoardPagingVO;
+import com.jian.project1.model.LikeEntity;
 
 @Service
 public class BoardService {
@@ -132,6 +133,14 @@ public class BoardService {
 		p.setCategory(12);
 		return mapper.updBoard(p);
 	}
+	
+	
+	
+	
+
+	
+	
+	
 	
 	
 }

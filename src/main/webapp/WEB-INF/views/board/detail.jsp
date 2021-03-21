@@ -3,6 +3,11 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 
+<script src="https://kit.fontawesome.com/f094e80764.js"
+	crossorigin="anonymous"></script>
+<link rel="stylesheet" href="/res/css/likeBtn.css">
+
+
 <div class="detail_container">
 	<h1 class="h1">책방일지와 함께하며</h1>
 	<input type="hidden" value="${param.category}">
@@ -61,6 +66,7 @@
 
 
 
+<script src="/res/js/likeBtn.js"></script>
 
 
 
