@@ -23,7 +23,6 @@
 
 <br>
 <br>
-<br>
 
 
 ## 2. 기능 설명
@@ -35,6 +34,7 @@
 > <img src="README_IMG/메일 인증1.png" width="430"> / <img src="README_IMG/메일 인증2.png" width="430">
 >
 
+<br>
 <br>
 
 > ### - CRUD 기능의 게시판 
@@ -51,6 +51,7 @@
 >
 
 <br>
+<br>
 
 > ### - 모임에서 읽은 책들을 DB에 추가하여 메인 페이지에서 롤링
 >  * 클릭하면 modal 창이 열리고 입력한 도서 제목 및 데이터를 볼 수 있다.
@@ -58,6 +59,7 @@
 > <img src="README_IMG/modal.png" width="430">
 >
 
+<br>
 <br>
 
 > ### - 구글 캘린더를 연동하여 책방 모임 일정 및 활동 공유
@@ -73,12 +75,13 @@
 
 <img src="README_IMG/eclipse.png" width="300">
 
-<br><br>
+<br>
+<br>
 
 ## 4. 개발진 
 
 <br>
-
+<br>
 
 ## 5. 추가 중인 기능
 * 좋아요 기능, 대댓글 기능
