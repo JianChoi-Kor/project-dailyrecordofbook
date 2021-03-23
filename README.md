@@ -31,7 +31,7 @@
 > 
 >   메일에 코드를 클릭해서 인증을 거쳐야 로그인 가능
 >   
-> <img src="README_IMG/메일 인증1.png" width="430"> / <img src="README_IMG/메일 인증2.png" width="430">
+> <img src="README_IMG/메일 인증1.png" width="430">    <img src="README_IMG/메일 인증2.png" width="430">
 >
 
 <br>
@@ -47,7 +47,7 @@
 >
 > * 모집 및 공지사항은 관리자만 작성 가능, 모임이 완료된 글은 모집완료 카테고리로 변경 가능  
 > 
-> <img src="README_IMG/ckeditor.png" width="430"> / <img src="README_IMG/댓글.png" width="430">
+> <img src="README_IMG/ckeditor.png" width="430">    <img src="README_IMG/댓글.png" width="430">
 >
 
 <br>
