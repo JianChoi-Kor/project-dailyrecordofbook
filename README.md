@@ -4,7 +4,9 @@
 [책방일지 사이트 바로가기](http://49.50.165.50:8080/main/home)
 
 TEST ID / PW
+
 guest@guest.com / project1
+
 manager@manager.com / project1
 
 <br>
