@@ -28,7 +28,7 @@
 > 
 >   메일에 코드를 클릭해서 인증을 거쳐야 로그인 가능
 >   
-<img src="README_IMG/메일 인증1.png" width="500"><img src="README_IMG/메일 인증2.png" width="500">
+> <img src="README_IMG/메일 인증1.png" width="500"> <img src="README_IMG/메일 인증2.png" width="500">
 
 
 
