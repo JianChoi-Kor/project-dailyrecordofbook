@@ -53,7 +53,7 @@
 
 ## 3. 사용 기술
 
-<img src="eclipse.png" width="300">
+<img src="README_IMG/eclipse.png" width="300">
 
 <br><br>
 
