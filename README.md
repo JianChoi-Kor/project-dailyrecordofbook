@@ -87,7 +87,7 @@
 |  <center>최지안</center> |  <center>최지안</center> |  <center>최지안</center> |
 |:--------:|:--------:|:--------:|
 |<center>wldks79@naver.com</center> | <center>wldks79@naver.com</center> |<center>wldks79@naver.com</center> |
-|<center><img src="README_IMG/최지안1.jpg" width="180"></center> | <center><img src="README_IMG/최지안2.jpg" width="180"></center> |<center><img src="README_IMG/최지안3.jpg" width="180"></center> |
+|<center><img src="README_IMG/최지안1.JPG" width="180"></center> | <center><img src="README_IMG/최지안2.JPG" width="180"></center> |<center><img src="README_IMG/최지안3.JPG" width="180"></center> |
 |<center>cell 1x2 </center> | <center>cell 3x2 </center> |<center>cell 1x2 </center> |
 
 <br>
