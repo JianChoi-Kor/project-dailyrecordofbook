@@ -73,10 +73,10 @@
 
 ## 3. 사용 기술
 
-<img src="README_IMG/eclipse.png" width="200"><img src="README_IMG/apachetomcat.png" width="200"><img src="README_IMG/spring.png" width="200">
-<img src="README_IMG/mysql.png" width="200"><img src="README_IMG/java.jpeg" width="200"><img src="README_IMG/jsp.png" width="200">
-<img src="README_IMG/javascript.png" width="200"><img src="README_IMG/json.png" width="200"><img src="README_IMG/tiles.png" width="200">
-<img src="README_IMG/ajax.png" width="200">
+<img src="README_IMG/eclipse.png" width="150"><img src="README_IMG/apachetomcat.png" width="150"><img src="README_IMG/spring.png" width="150">
+<img src="README_IMG/mysql.png" width="150"><img src="README_IMG/java.jpeg" width="150"><img src="README_IMG/jsp.png" width="150">
+<img src="README_IMG/javascript.png" width="150"><img src="README_IMG/json.png" width="150"><img src="README_IMG/tiles.png" width="150">
+<img src="README_IMG/ajax.png" width="150">
 
 
 <br>
