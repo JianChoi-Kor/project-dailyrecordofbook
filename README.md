@@ -28,7 +28,7 @@
 > 
 >   메일에 코드를 클릭해서 인증을 거쳐야 로그인 가능
 >   
-> <img src="README_IMG/메일 인증1.png" width="450">&nbsp&nbsp&nbsp<img src="README_IMG/메일 인증2.png" width="450">
+> <img src="README_IMG/메일 인증1.png" width="430"> / <img src="README_IMG/메일 인증2.png" width="430">
 
 
 
@@ -41,12 +41,18 @@
 > * 댓글 작성 기능을 구현 (현재 좋아요 기능, 대댓글 기능 구현 중)
 >
 > * 모집 및 공지사항은 관리자만 작성 가능, 모임이 완료된 글은 모집완료 카테고리로 변경 가능  
+> 
+> <img src="README_IMG/ckeditor.png" width="430"> / <img src="README_IMG/댓글.png" width="430">
 
 
 > ### - 모임에서 읽은 책들을 DB에 추가하여 메인 페이지에서 롤링
 >  * 클릭하면 modal 창이 열리고 입력한 도서 제목 및 데이터를 볼 수 있다.
+>
+> <img src="README_IMG/modal.png" width="430">
 
 > ### - 구글 캘린더를 연동하여 책방 모임 일정 및 활동 공유
+> 
+> <img src="README_IMG/캘린더.png" width="430">
 
 <br><br>
 
