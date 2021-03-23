@@ -84,6 +84,12 @@
 
 ## 4. 개발진 
 
+|  <center>Header1</center> |  <center>Header2</center> |  <center>Header3</center> |
+|:--------|:--------:|--------:|
+|<center>cell 1x2 </center> | <center>cell 1x2 </center> |<center>cell 1x2 </center> |
+|<center>cell 1x2 </center> | <center>cell 2x2 </center> |<center>cell 1x2 </center> |
+|<center>cell 1x2 </center> | <center>cell 3x2 </center> |<center>cell 1x2 </center> |
+
 <br>
 <br>
 
