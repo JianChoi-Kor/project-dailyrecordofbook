@@ -53,7 +53,6 @@
 
 ## 3. 사용 기술
 
-![ajax](https://user-images.githubusercontent.com/74244733/112192520-5e26c600-8c4a-11eb-8143-2a8559d885f3.png)
 
 
 <br><br>
