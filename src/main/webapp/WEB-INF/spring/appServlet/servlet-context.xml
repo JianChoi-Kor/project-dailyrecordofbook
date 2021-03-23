@@ -35,7 +35,7 @@
 		<beans:property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
 		<beans:property name="jdbcUrl" value="jdbc:mysql://localhost/project1"/>
 		<beans:property name="username" value="root"/>
-		<beans:property name="password" value="G3f-aP4gy=d"/>
+		<beans:property name="password" value="9269"/>
 	</beans:bean>
 	
 	<beans:bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close">

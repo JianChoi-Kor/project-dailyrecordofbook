@@ -97,7 +97,7 @@ if (joinBtnElem) {
 		fetch('/user/join', {
 			method: 'post',
 			headers: {
-				'Content-Type': 'application/json'
+				'Content-Type': 'application/json',
 			},
 			body: JSON.stringify(param)
 		}).then(function(res) {
