@@ -1,6 +1,5 @@
 package com.jian.project1.board;
 
-import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;

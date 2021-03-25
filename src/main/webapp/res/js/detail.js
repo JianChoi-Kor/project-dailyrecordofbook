@@ -221,15 +221,14 @@ function selCmtList() {
 		
 		var html = ''
 		
-		//
+		
 		html += '<div class="oneMod hidden" id="oneMod'+item.cmtSeq+'">'
 		html +=	addUpdFrm(item) 
 		html += '</div>'
 
 
-		// 자신이 쓴 댓글 확인 및 좋아요 확인하기 위한 userPk 변수
+		// 본인이 쓴 댓글인지 확인하기 위한 loginUserPk + likde 기능
 		var loginUserPk = parseInt(pageInfo.dataset.loginuserpk)
-
 
 
 		html += '<div class="oneCmt" id="oneCmt'+item.cmtSeq+'">'
@@ -244,7 +243,7 @@ function selCmtList() {
 		html +=				"&nbsp&nbsp"
 		html +=				'<span>'+item.cmtRegDt+'&nbsp&nbsp&nbsp&nbsp&nbsp</span>'
 		html +=				'<div class="likeForm">'
-		html +=					'<i class="fas fa-heart heart-icon" id="heart-icon'+item.cmtSeq+'" onclick="liked('+item.cmtSeq+', '+loginUserPk+')"></i>'
+		html +=					'<i class="fas fa-heart heart-icon" id="heart-icon'+item.cmtSeq+'" onclick="liked('+item.cmtSeq+' ,'+loginUserPk+')"></i>'
 		html +=					'<span class="liked-span" id="liked-span'+item.cmtSeq+'">liked!</span>'
 		html +=				"</div>"
 		html +=			"</div>"
