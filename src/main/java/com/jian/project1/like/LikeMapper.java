@@ -12,4 +12,5 @@ public interface LikeMapper {
 	int insLike(LikeEntity p); 
 	List<LikeEntity> selLikeList(LikeEntity p);
 	int delLike(LikeEntity p);
+	int total(LikeEntity p);
 }

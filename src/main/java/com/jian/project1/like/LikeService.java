@@ -27,4 +27,8 @@ public class LikeService {
 	public int delLike(LikeEntity p) {
 		return mapper.delLike(p);
 	}
+	
+	public int total(LikeEntity p) {
+		return mapper.total(p);
+	}
 }

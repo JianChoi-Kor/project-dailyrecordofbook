@@ -30,10 +30,17 @@ public class LikeController {
 		return service.selLikeList(p);
 	}
 	
+	@GetMapping("/total")
+	public int total(LikeEntity p) {
+		return service.total(p);
+	}
+	
+	
 	@DeleteMapping
 	public int del(LikeEntity p) {
 		return service.delLike(p);
 	}
+	
 	
 	
 }

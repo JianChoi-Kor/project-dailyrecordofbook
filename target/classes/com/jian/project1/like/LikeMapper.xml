@@ -31,4 +31,12 @@
 	</delete>
 
 
+	<select id="total">
+		SELECT
+		COUNT (*)
+		FROM project1_like
+		WHERE cmtBoardPk = #{cmtBoardPk}
+		AND cmtSeq = #{cmtSeq}
+	</select>
+
 </mapper>  

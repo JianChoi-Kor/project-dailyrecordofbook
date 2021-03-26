@@ -12,6 +12,7 @@ if(pageInfo) {
 
 
 
+
 $(document).ready(likeLoad())
 
 function likeLoad() {
@@ -29,8 +30,30 @@ function likeLoad() {
 			console.log(result)
 			chkLike(result)
 		})
-
+		
 }
+
+
+
+function countLoad(cmtBoardPk, cmtSeq) {
+	
+	console.log('cmtBoardPk' + cmtBoardPk)
+	console.log('cmtSeq' + cmtSeq)
+	
+	var eachCmt = document.querySelector(`#count${cmtSeq}`)
+	
+	fetch(`/liked/total?cmtBoardPk=${cmtBoardPk}&cmtSeq=${cmtSeq}`)
+		.then(res => res.json())
+		.then(result => {
+			eachCmt.innerText(`${result}`)
+		})
+	
+	
+}
+
+
+
+
 
 
 function chkLike(result) {
@@ -45,6 +68,8 @@ function chkLike(result) {
 		
 		const PRESSED_CLASS = "press"
 		cmtId.classList.add(PRESSED_CLASS)
+		
+		countLoad(item.cmtBoardPk, item.cmtSeq)
 		
 	})
 }
@@ -110,10 +135,8 @@ function likeAddAjax(cmtSeq, loginUserPk) {
 	}).then(function(result) {
 		if(result === 1) {
 			console.log('좋아요 저장')
-		} else if(result === 0) {
-			console.log('좋아요 삭제')
 		} else {
-			console.log('다른 오류')
+			console.log('오류')
 		}
 	})
 	
