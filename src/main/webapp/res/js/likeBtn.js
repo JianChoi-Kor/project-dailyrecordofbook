@@ -17,14 +17,11 @@ $(document).ready(likeLoad())
 
 function likeLoad() {
 	
+	
 	var cmtBoardPk = pageInfo.dataset.boardpk
-	var userPk = pageInfo.dataset.loginuserpk
-	
-	if(userPk.isNaN) {
-		userPk = 0
-	}
-	
-	fetch(`/liked?cmtBoardPk=${cmtBoardPk}&userPk=${userPk}`)
+
+
+	fetch(`/liked?cmtBoardPk=${cmtBoardPk}`)
 		.then(res => res.json())
 		.then(result => {
 			console.log(result)
@@ -41,13 +38,16 @@ function countLoad(cmtBoardPk, cmtSeq) {
 	console.log('cmtSeq' + cmtSeq)
 	
 	var eachCmt = document.querySelector(`#count${cmtSeq}`)
+	eachCmt.innerHTML = ''
 	
 	fetch(`/liked/total?cmtBoardPk=${cmtBoardPk}&cmtSeq=${cmtSeq}`)
 		.then(res => res.json())
-		.then(result => {
-			eachCmt.innerText(`${result}`)
+		.then(function(result) {
+				
+			eachCmt.innerHTML = '좋아요 : '+`${result}`
 		})
 	
+
 	
 }
 
@@ -55,20 +55,27 @@ function countLoad(cmtBoardPk, cmtSeq) {
 
 
 
-
 function chkLike(result) {
 	
+	var loginUserPk = pageInfo.dataset.loginuserpk
+	
 	if(result.length === 0) {
+		
 		return 
 	}
 	result.forEach(function(item) {
+		
+		
+		
+		if(item.userPk == loginUserPk) {
+			
+			var cmtId = document.querySelector(`#heart-icon${item.cmtSeq}`)
+			console.log(cmtId)
+		
+			const PRESSED_CLASS = "press"
+			cmtId.classList.add(PRESSED_CLASS)
+		}
 
-		var cmtId = document.querySelector(`#heart-icon${item.cmtSeq}`)
-		console.log(cmtId)
-		
-		const PRESSED_CLASS = "press"
-		cmtId.classList.add(PRESSED_CLASS)
-		
 		countLoad(item.cmtBoardPk, item.cmtSeq)
 		
 	})
@@ -135,10 +142,12 @@ function likeAddAjax(cmtSeq, loginUserPk) {
 	}).then(function(result) {
 		if(result === 1) {
 			console.log('좋아요 저장')
+			likeLoad()
 		} else {
 			console.log('오류')
 		}
 	})
+
 	
 }
 
@@ -154,11 +163,10 @@ function likeDelAjax(cmtSeq, loginUserPk) {
 	.then(result => {
 		if(result === 1) {
 			console.log('좋아요 취소')
+			location.reload()
 		}
 	})
 }
-
-
 
 
 
@@ -173,6 +181,13 @@ function likeMotion(cmtSeq) {
   	iconElem.classList.toggle(PRESSED_CLASS)
  	spanElem.classList.toggle(PRESSED_CLASS)
 }
+
+
+
+
+
+
+
 
 
 

@@ -18,7 +18,6 @@
 		SELECT *
 		FROM project1_like
 		WHERE cmtBoardPk = #{cmtBoardPk}
-		AND userPk = #{userPk}	
 	</select>
 	
 
@@ -31,9 +30,8 @@
 	</delete>
 
 
-	<select id="total">
-		SELECT
-		COUNT (*)
+	<select id="total" resultType="int">
+		SELECT COUNT(*)
 		FROM project1_like
 		WHERE cmtBoardPk = #{cmtBoardPk}
 		AND cmtSeq = #{cmtSeq}

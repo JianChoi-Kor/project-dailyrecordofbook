@@ -246,7 +246,7 @@ function selCmtList() {
 		html +=					'<i class="fas fa-heart heart-icon" id="heart-icon'+item.cmtSeq+'" onclick="liked('+item.cmtSeq+' ,'+loginUserPk+')"></i>'
 		html +=					'<span class="liked-span" id="liked-span'+item.cmtSeq+'">liked!</span>'
 		
-		html +=					'<span class="likeCount" id="count'+item.cmtSeq+'">좋아요 </span>'
+		html +=					'<span class="likeCount" id="count'+item.cmtSeq+'"></span>'
 		
 		html +=				"</div>"
 		html +=			"</div>"

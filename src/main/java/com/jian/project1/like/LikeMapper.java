@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import com.jian.project1.model.LikeDomain;
 import com.jian.project1.model.LikeEntity;
 
 @Mapper
