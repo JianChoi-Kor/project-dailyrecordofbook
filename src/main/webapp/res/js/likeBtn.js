@@ -17,6 +17,12 @@ $(document).ready(likeLoad())
 
 function likeLoad() {
 	
+	var resetLike = document.querySelectorAll('.likeCount')
+	var i
+	
+	for (i = 0; i < resetLike.length; i++) {
+    	resetLike[i].innerHTML = "";
+	}
 	
 	var cmtBoardPk = pageInfo.dataset.boardpk
 
@@ -163,7 +169,7 @@ function likeDelAjax(cmtSeq, loginUserPk) {
 	.then(result => {
 		if(result === 1) {
 			console.log('좋아요 취소')
-			location.reload()
+			likeLoad()
 		}
 	})
 }
