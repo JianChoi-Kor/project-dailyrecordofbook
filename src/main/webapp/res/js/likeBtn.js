@@ -11,9 +11,11 @@ if(pageInfo) {
 }
 
 
+//window.onload = likeLoad()
 
 
-$(document).ready(likeLoad())
+
+// $(document).ready(likeLoad())
 
 function likeLoad() {
 	
@@ -35,6 +37,11 @@ function likeLoad() {
 		})
 		
 }
+
+setTimeout(likeLoad(), 500)
+
+
+
 
 
 
